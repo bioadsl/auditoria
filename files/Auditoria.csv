@@ -1,0 +1,205 @@
+numero_ticket ,agente,cliente,data_chamado ,servidor ,Chamado,descricao_problema ,tipo_acao_realizada ,situacao_final ,resultado_ligacao ,observacao ,tempo_espera,acesso_remoto,mês
+1,Samara,ANA,05/03/2025 14:17:34,,,,Sem Ação,Sem Chamado,Engano,,0,Não,março
+2,Matheus Henrique,ANA,05/03/2025 14:20:18,Mariana Azevedo,,Problema no globalprotect,Corretiva,Fechado OK,Atendida,,0,Não,março
+3,Samara,ANA,05/03/2025 14:54:53,Myke,,Problema no globalprotect ,Corretiva,Fechado OK,Atendida,,0,Sim,março
+4,Matheus Henrique,ANA,05/03/2025 16:07:51,Renata,,Problema no globalprotect,Corretiva,Sem comunicação,Interrompida,"cliente Renata Alves, problema no globalprotect não reconhece senha, 1ª ligação cai, a conta do próton + rede",0,Sim,março
+5,Samara,ANA,05/03/2025 16:16:43,Renata,,Problema no globalprotect,Corretiva,Sem comunicação,Interrompida,"Esse é o procedimento padrão? Houve retorno para responder a cliente?
+2ª ligação,  continua o atendimento 004, usuário questiona o porque do procedimento de remoção nas credenciais do Windows, logo a ligação cai.",0,Sim,março
+6,Samara,ANA,05/03/2025 17:51:16,Renata,,Problema no adobe creative cloud,Corretiva,Fechado OK,Atendida,Tempo superior a 15 segundos para inicio do atendimento,0,Não,março
+7,Paulo,ANA,06/03/2025 08:48:20,Elton,,Conta bloqueada,Corretiva,Fechado OK,Interrompida,Apesar de resolver o chamado ao final  o atendente não escuta mais o cliente ,0,Não,março
+8,Matheus Vieira,TRE-CE,06/03/2025 09:10:35,Paulo,,Conta bloqueada,Abertura,Fechado OK,Atendida,"Problema no email, login bloqueado, abertura de chamado para redes",0,Não,março
+9,Matheus Vieira,TRE-CE,06/03/2025 09:24:15,Gisele,RITN0011246,Email não cadastrado,Informação,Fechado OK,Atendida,"
+chamado RITN0011246(em andamento), andamento do chamado esta travado, email não cadastrado, cliente quer status de atendimento. O atendente desconhece a equipe e sistema responsável, procedimento descrito na nota técnica contida no chamado, o cadastro do email deve ser efetuado no sistema SGRH. Averiguar se possui SLA, ao tomar conhecimento de um novo procedimento, deve adotar a pratica de disseminar o conhecimento para equipe",0,Não,março
+10,Matheus Vieira,TRE-CE,06/03/2025 09:42:28,Lidia,,Atualização de email institucional,Encaminhamento,"Fechado OK, Sem Chamado",Atendida,,0,Não,março
+11,Jhuan,TRE-CE,06/03/2025 10:04:44,Evilson,INC0027452,Manutenção da impressora de crachá,Encaminhamento,Fechado NOK,Atendida,"chamado INC0027452, aberto 04/02 para reparo da impressora de crachá, após testes o tecnico informou que não havia problema fisico, cliente se queixa que o chamado foi fechado sem permissão e resolução. Cliente abriu novo chamado UR0010908",0,Não,março
+12,Matheus Vieira,TRE-CE,06/03/2025 10:09:17,Ivna,,Instalação de periféricos,Abertura,Sem comunicação,Interrompida,Atendimento audio de outro atendimento vazando,0,Não,março
+13,Matheus Vieira,TRE-CE,06/03/2025 10:12:33,Ivna,,Instalação de periféricos,Abertura,Fechado OK,Atendida,Abertura de chamado para instalaçao de perifiericos,0,Não,março
+14,Jhuan,TRE-CE,06/03/2025 11:38:22,Pedro,INC0031559,Atualização de aplicativo,Encaminhamento,Fechado OK,Atendida,,0,Não,março
+15,Matheus Henrique,ANA,06/03/2025 14:52:04,,,Maquina da agência desligada,Abertura,Fechado OK,Atendida,,0,Não,março
+16,Samara,ANA,06/03/2025 15:47:27,,,,Sem Ação,Sem comunicação,Não atendida,,0,Não,março
+17,Samara,ANA,06/03/2025 15:48:15,,,,Sem Ação,Sem comunicação,Interrompida,,23,Não,março
+18,Samara,ANA,06/03/2025 15:49:20,,,,Sem Ação,Sem comunicação,Não atendida,,33,Não,março
+19,Samara,ANA,06/03/2025 15:49:50,,,,Sem Ação,Sem comunicação,Interrompida,"
+Samara comenta que Matheus bloqueou a propria maquina e as ligações estão caindo",26,Não,março
+20,Samara,ANA,06/03/2025 15:51:04,Eduardo,,Instalação de Software,Sem Ação,Sem Chamado,Abandono,"O chamado é para instalar o sistema Hidro, serve para consultar as estações da ANA, cliente confundiu. O atendente deve ter relação de quais os sistemas pode dar manutenção no cliente ",0,Não,março
+21,Matheus Henrique,ANA,06/03/2025 16:11:22,Renata,,Redefinição de senha ,Incompleta,Pendente,Interrompida,"Atendente disse ao cliente que retornaria, Aplicativo não abre as minutas, problema possivel,  troca de senha",0,Não,março
+22,Matheus Vieira,TRE-CE,07/03/2025 08:56:10,Evilson,RIPN0011269 ,Manutenção da impressora de crachá,Informação,Pendente,Atendida,RIPN0011269 Reparo da impressora de crachá,0,Não,março
+23,Teddy,SGG,07/03/2025 09:55:28,,,Testes da URA,Sem Ação,Teste,Teste,"Inicio de Sequência de testes da URA (62)3269-4102
+Preposto do contrato Antonio e José Inácio",0,Não,março
+24,Jhuan,TRE-CE,07/03/2025 10:15:50,Robson,,Problema no firewall encaminhar chamado para Cyber,Encaminhamento,Pendente,Atendida,"Jhuan informa que não existia um procedimento para chamado dessa natureza, ate teve iniciativa de pesquisar em chamados semelhantes, porem cliente questiona encaminhamento para Redes, sendo que é uma questão de firewall, deveria ser encaminhado para Cyber",0,Não,março
+25,Matheus Vieira,TRE-CE,08/03/2025 10:15:50,Robson,INC0030830,Problema de senha encaminhar  chamado para Cyber,Encaminhamento,Pendente,Atendida,"Matheus se desculpa, informa que pensou que chamados de senha seria encaminhado para redes, porem cliente questiona encaminhamento para redes sendo que quando é uma questão de senhas deveria ser encaminhado para Cyber, apenas problemas de email devem ser encaminhados para Redes",0,Não,março
+26,Jhuan,TRE-CE,07/03/2025 10:19:24,Flavia,INC0031637,Ativação de aplicativo,Encaminhamento,Fechado OK,Atendida,Ativação do ODIN,0,Não,março
+27,Paulo,ANA,07/03/2025 10:20:37,Pedro Cunha,,Problema no globalprotect ,Abertura,Fechado OK,Atendida,,0,Sim,março
+28,Matheus Vieira,TRE-CE,07/03/2025 10:22:24,Robson,INC0031548,Problema de senha encaminhar  chamado para Cyber,Encaminhamento,Fechado OK,Atendida,Encaminhamento de chamado de senha para cyber,0,Não,março
+29,Paulo,ANA,07/03/2025 12:24:46,,,,Sem Ação,Sem comunicação,Interrompida,,0,Não,março
+30,Paulo,ANA,07/03/2025 11:18:42,,,,Sem Ação,Sem comunicação,Interrompida,,0,Não,março
+31,Paulo,ANA,07/03/2025 11:30:18,,,,Sem Ação,Teste,Teste,,0,Não,março
+32,Paulo,ANA,07/03/2025 11:31:57,,,,Sem Ação,Teste,Teste,,0,Não,março
+33,Teddy,SGG,07/03/2025 12:24:46,,,,Sem Ação,Teste,Teste,,0,Não,março
+34,Teddy,SGG,07/03/2025 12:31:45,,,,Sem Ação,Teste,Teste,,0,Não,março
+35,Eduardo,TRE-CE,07/03/2025 13:05:48,Aureni,,Abertura de chamados no SEI para Terceiros,Informação,Fechado OK,Atendida,,0,Não,março
+36,Teddy,SGG,07/03/2025 13:38:35,,,,Sem Ação,Sem comunicação,Interrompida,,0,Não,março
+37,Adeilson,TRE-CE,07/03/2025 13:49:27,,,Abertura de chamados no SEI para Terceiros,Informação,Fechado OK,Atendida,Informação de categoria para abertura de chamados no SEI para banco de dados,0,Não,março
+38,Teddy,SGG,07/03/2025 14:12:32,Antonio,,Testes da URA,Corretiva,Teste,Teste,"Gestor do contrato, configuração da URA",0,Não,março
+39,Teddy,SGG,07/03/2025 14:23:17,,,Testes da URA,Informação,Fechado OK,Atendida,Repasse para Vanessa G4F,0,Não,março
+40,Adeilson,TRE-CE,07/03/2025 15:27:26,,,,Sem Ação,Sem comunicação,Não atendida,,0,Não,março
+41,Matheus Vieira,TRE-CE,10/03/2025 07:25:07,Jose Humberto,,Solicitação de dados para abertura de chamado,Encaminhamento,Fechado OK,Atendida,,0,Não,março
+42,Paulo,ANA,10/03/2025 08:05:33,Alex Soares,,Saida de fone de ouvido não funciona,Abertura,Fechado OK,Atendida,,0,Não,março
+43,Jhuan,TRE-CE,10/03/2025 08:19:46,,INC0027638,Cliente deseja dar feedback para o cliente porem esta impedido,Encaminhamento,Fechado OK,Atendida,,0,Sim,março
+44,Paulo,ANA,10/03/2025 08:22:24,Deusdei,,Conta bloqueada,Corretiva,Fechado OK,Atendida,Email bloqueado ,0,Não,março
+45,Paulo,ANA,10/03/2025 09:17:02,Fernando,,"One drive não conecta, Configuração de wifi na maquina",Corretiva,Fechado OK,Atendida,,0,Sim,março
+46,Paulo,ANA,10/03/2025 09:25:29,Lucimar,,Problema no calendário do CECAD,Corretiva,Fechado OK,Atendida,,25,Sim,março
+47,Matheus Vieira,TRE-CE,10/03/2025 09:40:28,Jardel,UR0010919,Instalação de Software,Encaminhamento,Fechado OK,Atendida,,0,Não,março
+48,Paulo,ANA,10/03/2025 09:48:20,Ana Catarina,,Conta bloqueada,Corretiva,Fechado OK,Atendida,,0,Sim,março
+49,Matheus Acioly,ANA,10/03/2025 10:00:00,Igor,,Senha do SEI nao funciona,Corretiva,Fechado OK,Atendida,Audio do atendente muito baixo,0,Não,março
+50,Paulo,ANA,10/03/2025 10:06:21,,,Configuração de wifi na maquina,Corretiva,Fechado OK,Atendida,,0,Não,março
+51,Adeilson,TRE-CE,10/03/2025 13:33:40,Flavia Helena,,Conta bloqueada,Abertura,Fechado OK,Atendida,Conceder acesso a VPN,0,Não,março
+52,Eduardo,TRE-CE,10/03/2025 14:15:51,Robson,,Engano,Sem Ação,Sem Chamado,Engano,,0,Não,março
+53,Adeilson,TRE-CE,10/03/2025 14:16:33,Robson,,Problema de senha encaminhar  chamado para Cyber,Encaminhamento,Fechado OK,Atendida,Encaminhar chamado a Cyber para conceder acesso a VPN,0,Não,março
+54,Matheus Henrique,ANA,10/03/2025 15:22:24,,,,Sem Ação,Teste,Teste,,0,Não,março
+55,Matheus Acioly,ANA,10/03/2025 15:23:23,,,,Sem Ação,Sem comunicação,Não atendida,,0,Não,março
+56,Samara,ANA,10/03/2025 15:33:11,,,,Sem Ação,Teste,Teste,,0,Não,março
+57,Matheus Henrique,ANA,10/03/2025 15:52:10,,,Consulta de localização,Informação,Fechado OK,Atendida,Localização de local de reuniao com funcionario Mozart Super intendente de tecnologia,0,Não,março
+58,Adeilson,TRE-CE,10/03/2025 15:53:11,Yasmin,,Conta bloqueada,Abertura,Fechado OK,Atendida,,0,Não,março
+59,Matheus Acioly,ANA,10/03/2025 16:35:35,,,,Sem Ação,Sem comunicação,Não atendida,,0,Não,março
+60,Samara,ANA,10/03/2025 16:56:26,Gean Carvalho,,Configuração de WiFi no celular,Encaminhamento,Fechado OK,Atendida,,0,Não,março
+61,Matheus Acioly,ANA,10/03/2025 17:05:24,,,,Sem Ação,Sem comunicação,Não atendida,,0,Não,março
+62,Paulo,ANA,11/03/2025 08:25:30,Deusdei,,,Sem Ação,Sem comunicação,Interrompida,Ligação caiu,0,Não,março
+63,Paulo,ANA,11/03/2025 08:27:28,Deusdei,,Problema na senha do office,Encaminhamento,Fechado OK,Atendida,,0,Sim,março
+64,Paulo,ANA,11/03/2025 08:55:54,,,Configuração de aplicativo,Corretiva,Fechado OK,Atendida,Não consegue escrever no Teams,66,Não,março
+65,Jhuan,TRE-CE,11/03/2025 09:08:48,,,Problema no Bioponto,Informação,Fechado OK,Atendida,Nesse caso o agente poderia ter aberto o chamado para o n2?,0,Não,março
+66,Matheus Vieira,TRE-CE,11/03/2025 09:42:06,Francélio,,Cadastro no DOC,Encaminhamento,Fechado OK,Atendida,,0,Não,março
+67,Paulo,ANA,11/03/2025 10:02:41,Wander Barbosa,,Instalação de Software,Abertura,Fechado OK,Atendida,,0,Sim,março
+68,Paulo,ANA,11/03/2025 10:34:39,,,Instalação de Software,Informação,Fechado OK,Atendida,Instalar o plugin de segurança do banco do brasil,0,Não,março
+69,Jhuan,TRE-CE,11/03/2025 10:36:05,,,Senha invalida do ponto restrito,Informação,Fechado OK,Atendida,,0,Não,março
+70,Matheus Vieira,TRE-CE,11/03/2025 10:50:07,Lucio,,Redefinição de senha ,Abertura,Fechado OK,Atendida,,0,Não,março
+71,Matheus Acioly,ANA,11/03/2025 11:01:17,,,,Sem Ação,Sem comunicação,Não atendida,,0,Não,março
+72,Paulo,ANA,11/03/2025 11:02:31,Alessandra,,Papel atolado,Abertura,Fechado OK,Atendida,,0,Não,março
+73,Jhuan,TRE-CE,11/03/2025 12:50:38,Agenildo,,,Sem Ação,Sem comunicação,Interrompida,,0,Não,março
+74,Matheus Henrique,ANA,11/03/2025 15:36:45,Paulo Ungaretti,6955,Conta bloqueada,Abertura,Fechado OK,Atendida,,0,Não,março
+75,Matheus Vieira,TRE-CE,12/03/2025 08:36:51,Lorena,INC0032175,Problema com token,Abertura,Fechado OK,Atendida,,0,Não,março
+76,Paulo,ANA,12/03/2025 08:52:04,Flavio,6989,Instalação de Software,Abertura,Fechado OK,Atendida,Audio de outro atendente vazando,0,Não,março
+77,Matheus Vieira,TRE-CE,12/03/2025 09:18:52,Regis,UR0010564,Suporte de biometria,Informação,Fechado OK,Atendida,,0,Não,março
+78,Jhuan,TRE-CE,12/03/2025 09:29:35,Nayane,,Configuração de impressora,Incompleta,Pendente,Atendida,,0,Sim,março
+79,Paulo,ANA,12/03/2025 10:07:52,Camila Pereira,,Problema no globalprotect,Corretiva,Fechado OK,Atendida,,0,Não,março
+80,Matheus Vieira,TRE-CE,12/03/2025 10:07:52,Eduardo,,Problema no Whatsapp businnes da sessão,Informação,Fechado OK,Atendida,,0,Não,março
+81,Paulo,ANA,12/03/2025 10:21:54,Paulo Ungaretti,6955,Conta bloqueada,Encaminhamento,Fechado OK,Atendida,"Bloqueio de senha, Formatação de notebook",0,Não,março
+82,Matheus Acioly,ANA,12/03/2025 11:12:34,Diego Alves,,Problema no globalprotect,Incompleta,Pendente,Atendida,,0,Não,março
+83,Eduardo,TRE-CE,12/03/2025 13:54:08,Flavia,,Problema de senha encaminhar  chamado para Cyber,Informação,Fechado OK,Atendida,,0,Sim,março
+84,Samara,ANA,12/03/2025 14:16:33,Carlos Souto,,Configuração de WiFi no celular,Corretiva,Fechado OK,Atendida,,0,Não,março
+85,Matheus Henrique,ANA,12/03/2025 14:44:04,Juliana,,Micro fora do dominio,Abertura,Fechado OK,Atendida,"Configuração de primeiro acesso no notebook, fora do dominio",0,Não,março
+86,Samara,ANA,12/03/2025 14:53:42,Luis Melo,,Sem permissão de acesso a pastas na rede,Abertura,Fechado OK,Atendida,,0,Sim,março
+87,Matheus Acioly,ANA,12/03/2025 15:54:10,,,,Sem Ação,Sem comunicação,Não atendida,,0,Não,março
+88,Paulo,ANA,13/03/2025 08:25:36,Lucimar,,Configuração de aplicativo,Corretiva,Fechado OK,Atendida,,0,Sim,março
+89,Jhuan,TRE-CE,13/03/2025 08:55:14,Charles,,Cliente deseja dar feedback para o cliente porem esta impedido,Informação,Fechado OK,Atendida,,0,Não,março
+90,Matheus Acioly,ANA,13/03/2025 10:12:25,,,,Sem Ação,Sem comunicação,Não atendida,,0,Não,março
+91,Paulo,ANA,13/03/2025 10:13:32,Eduardo,,Erro de atualização de script,Corretiva,Fechado OK,Atendida,,0,Sim,março
+92,Matheus Acioly,ANA,13/03/2025 10:35:14,Pedro,,Verificação de teste,Informação,Teste,Teste,,0,Não,março
+93,Nycolas Martins,ANA,13/03/2025 10:36:29,,,,Sem Ação,Sem comunicação,Abandono,,0,Não,março
+94,Paulo,ANA,13/03/2025 10:43:10,Maristela Barbosa,,Problema no globalprotect,Corretiva,Sem comunicação,Interrompida,,0,Sim,março
+95,Matheus Acioly,ANA,13/03/2025 10:45:17,,,,Sem Ação,Sem comunicação,Não atendida,,0,Não,março
+96,Paulo,ANA,13/03/2025 10:45:48,Maristela Barbosa,,Maquina da agência desligada,Corretiva,Pendente,Atendida,,0,Sim,março
+97,Nycolas Martins,ANA,13/03/2025 10:48:11,Ezilda ,,Falha de inicalização de software,Corretiva,Pendente,Atendida,,0,Sim,março
+98,Matheus Vieira,TRE-CE,13/03/2025 10:56:39,Marcia,,Instalação de periféricos,Informação,Fechado OK,Atendida,"Abertura de chamado para manutenção, kit biometrico dando choque",0,Não,março
+99,Jhuan,TRE-CE,13/03/2025 11:36:43,Jeovane,RIPM0011356,Redefinição de senha ,Abertura,Fechado OK,Atendida,,0,Não,março
+100,Matheus Henrique,ANA,13/03/2025 14:53:06,Meireles,,Conta bloqueada,Corretiva,Pendente,Atendida,,0,Sim,março
+101,Samara,ANA,13/03/2025 15:05:08,Ana Catarina,,Instalação de Software,Encaminhamento,Fechado OK,Atendida,,52,Não,março
+102,Samara,ANA,13/03/2025 15:47:25,Kassia Trindade,,Lentidão na Maquina,Abertura,Fechado OK,Atendida,,0,Não,março
+103,Matheus Henrique,ANA,13/03/2025 16:19:18,Ana Catarina,,Conta bloqueada,Corretiva,Pendente,Interrompida,,0,Não,março
+104,Samara,ANA,13/03/2025 16:27:24,Andersson,,Sem acesso a aplicativo,Abertura,Fechado OK,Atendida,,0,Não,março
+105,Paulo,ANA,14/03/2025 08:45:46,Helton Carneiro,,Conta bloqueada,Corretiva,Pendente,Interrompida,,0,Não,março
+106,Matheus Vieira,TRE-CE,14/03/2025 09:00:38,Marcio Taboril,RICN0011303,Configuração de aplicativo,Abertura,Fechado OK,Atendida,,0,Não,março
+107,Nycolas Martins,ANA,14/03/2025 09:19:49,Marlene,,Solicitação de papel para impressora,Abertura,Fechado OK,Atendida,,0,Não,março
+108,Jhuan,ANA,14/03/2025 09:28:29,Paulo,,Configuração de aplicativo,Informação,Fechado OK,Atendida,Erro de codigo acesso do Teams,0,Não,março
+109,Paulo,ANA,14/03/2025 10:05:38,Brantina Amorim,,Sincronização de senha na rede cabeada,Corretiva,Fechado OK,Atendida,,0,Não,março
+110,Matheus Henrique,ANA,14/03/2025 14:31:42,Alexandre Batista,,Configuração de aplicativo,Abertura,Fechado OK,Atendida,,0,Não,março
+111,Samara,ANA,14/03/2025 14:39:57,Thierry ,,Conta bloqueada,Abertura,Fechado OK,Atendida,,0,Não,março
+112,Matheus Henrique,ANA,14/03/2025 15:43:25,Vera,,Configuração de aplicativo,Informação,Fechado OK,Atendida,,0,Sim,março
+113,Paulo,ANA,17/03/2025 07:11:21,,,,Sem Ação,Sem comunicação,Não atendida,,0,Não,março
+114,Paulo,ANA,17/03/2025 08:02:33,,,Instalação de Software,Corretiva,Fechado OK,Atendida,Instalação do IR,0,Sim,março
+115,Matheus Vieira,TRE-CE,17/03/2025 08:13:29,Paulo Roberto,INC0032522,Erro de envio de notificação de aplicativo,Abertura,Fechado OK,Atendida,,0,Não,março
+116,Matheus Vieira,ANA,17/03/2025 09:12:04,Jaqueline,,Sem permissão de acesso a pastas na rede,Corretiva,Fechado OK,Atendida,,0,Sim,março
+117,Nycolas Martins,ANA,17/03/2025 09:43:27,,,Solicitação de papel para impressora,Sem Ação,Sem comunicação,Interrompida,,0,Não,março
+118,Jhuan,ANA,17/03/2025 09:48:12,,,Configuração da rede na maquina do cliente,Corretiva,Fechado OK,Atendida,,0,Não,março
+119,Paulo,ANA,17/03/2025 09:54:23,Ana Cristina,,Erro no autenticator,Sem Ação,Sem comunicação,Interrompida,Instalação do autenticator,0,Não,março
+120,Nycolas Martins,ANA,17/03/2025 09:55:39,Ana Cristina,,Erro no autenticator,Sem Ação,Sem comunicação,Interrompida,Instalação do autenticator,0,Não,março
+120,Nycolas Martins,ANA,17/03/2025 09:57:03,Ana Cristina,,Erro no autenticator,Corretiva,Fechado OK,Atendida,Instalação do autenticator,0,Sim,março
+122,Nycolas Martins,ANA,17/03/2025 10:00:09,Tome,,Erro no autenticator,Abertura,Fechado OK,Atendida,,0,Não,março
+123,Paulo,ANA,17/03/2025 10:07:35,,,,Sem Ação,Sem comunicação,Interrompida,,39,Não,março
+124,Paulo,ANA,17/03/2025 10:08:24,,,,Sem Ação,Sem comunicação,Interrompida,,0,Não,março
+125,Paulo,ANA,18/03/2025 10:08:24,Claudia Silva,,Redefinição de senha,Incompleta,Pendente,Atendida,,0,Não,março
+126,Nycolas Martins,ANA,17/03/2025 10:10:39,Joao Benicio,,Instalação de Software,Corretiva,Fechado OK,Atendida,Instalação do IR,20,Sim,março
+127,Paulo,ANA,17/03/2025 10:12:10,Claudia Silva,,Redefinição de senha,Corretiva,Fechado OK,Atendida,,0,Não,março
+128,Matheus Vieira,TRE-CE,17/03/2025 10:27:29,Diana Bastos,,,Sem Ação,Sem comunicação,Interrompida,,0,Não,março
+129,Nycolas Martins,ANA,17/03/2025 10:28:39,Eloy Silva,,Maquina não liga,Abertura,Fechado OK,Atendida,,0,Não,março
+130,Matheus Vieira,ANA,17/03/2025 10:29:07,Diana Bastos,,Troca de equipamento,Abertura,Fechado OK,Atendida,,0,Não,março
+131,Nycolas Martins,ANA,17/03/2025 10:48:45,Ednan,,Manutenção impressora,Abertura,Fechado OK,Atendida,,0,Não,março
+132,Jhuan,ANA,17/03/2025 11:25:48,Marciel,,,Sem Ação,Sem comunicação,Interrompida,,0,Não,março
+133,Matheus Vieira,TRE-CE,17/03/2025 11:26:37,Marciel,,Configuração de impressora,Abertura,Fechado OK,Atendida,,0,Não,março
+134,Jhuan,TRE-CE,17/03/2025 11:33:50,Diana Bastos,,Troca de equipamento,Informação,Fechado OK,Atendida,,0,Não,março
+135,Nycolas Martins,ANA,17/03/2025 12:11:46,Mara Moura,,Instalação de Software,Abertura,Fechado OK,Atendida,instalação do acrobat reader,0,Não,março
+136,Paulo,ANA,17/03/2025 12:32:24,Demetria Mendes,,Instalação de Software,Corretiva,Fechado OK,Atendida,Instalação do IR,0,Sim,março
+137,Adeilson,TRE-CE,17/03/2025 13:25:46,Erica Welian,RID0011292,Consulta de chamados,Informação,Fechado OK,Atendida,,0,Não,março
+138,Samara,ANA,17/03/2025 13:33:43,,,,Informação,Fechado OK,Atendida,,0,Não,março
+139,Matheus Henrique,ANA,17/03/2025 15:52:23,Flavia Barros,,Configuração de fone de ouvido na maquina do cliente,Corretiva,Fechado OK,Atendida,,0,Não,março
+140,Samara,ANA,17/03/2025 16:00:55,Flavia Barros,,Cancelamento de chamado,Cancelamento,Fechado OK,Atendida,,0,Não,março
+141,Samara,ANA,17/03/2025 16:07:06,Alex Soares,,Solicitação de papel para impressora,Abertura,Fechado OK,Atendida,,0,Não,março
+142,Matheus Henrique,ANA,17/03/2025 16:40:57,Antoniela Rodrigues,,Remanejamento temporario de equipamento,Abertura,Fechado OK,Atendida,,0,Não,março
+143,Samara,ANA,17/03/2025 16:59:32,Raquel Vieira,,Conta bloqueada,Informação,Fechado OK,Atendida,,0,Não,março
+144,Matheus Henrique,ANA,17/03/2025 17:58:59,Ana Rosa,,Sem permissão de acesso a pastas na rede,Abertura,Fechado OK,Atendida,,0,Não,março
+145,Jhuan,TRE-CE,18/03/2025 07:14:52,,RID001389,Consulta de chamados,Informação,Fechado OK,Atendida,,0,Não,março
+146,Nycolas Martins,ANA,18/03/2025 09:08:01,,,,Sem Ação,Sem comunicação,Interrompida,,0,Não,março
+147,Paulo,ANA,18/03/2025 09:14:27,Joao Benicio,,Configuração de aplicativo,Abertura,Fechado OK,Atendida,,0,Sim,março
+148,Paulo,ANA,18/03/2025 09:29:32,Mauricio Pontes,,,Sem Ação,Sem comunicação,Interrompida,,0,Não,março
+149,Paulo,ANA,18/03/2025 09:32:02,Mauricio Pontes,,Lentidão na Maquina,Corretiva,Fechado OK,Atendida,,0,Sim,março
+150,Nycolas Martins,ANA,18/03/2025 09:35:02,Marcos Mollo,,Problema com token,Abertura,Fechado OK,Atendida,,0,Não,março
+151,Paulo,ANA,18/03/2025 09:46:34,Zezé,7199,Formatação da maquina do cliente,Informação,Fechado OK,Atendida,chamado 7200 em duplicidade sendo fechados,0,Não,março
+152,Nycolas Martins,ANA,18/03/2025 09:53:32,,,,Sem Ação,Sem comunicação,Interrompida,,0,Não,março
+153,Matheus Vieira,TRE-CE,18/03/2025 09:55:57,,,,Sem Ação,Sem comunicação,Interrompida,,0,Não,março
+154,Paulo,ANA,18/03/2025 09:56:04,Fabiana Teixeira,,Erro no autenticator,Corretiva,Fechado OK,Atendida,,0,Sim,março
+155,Jhuan,TRE-CE,18/03/2025 09:57:30,,,Falha de comunição de aplicativo,Abertura,Fechado OK,Atendida,,0,Não,março
+156,Nycolas Martins,ANA,18/03/2025 10:05:59,,,,Sem Ação,Sem Chamado,Engano,,0,Não,março
+157,Nycolas Martins,ANA,18/03/2025 10:08:19,,,,Sem Ação,Sem comunicação,Interrompida,,0,Não,março
+158,Nycolas Martins,ANA,18/03/2025 10:10:32,,,Instalação de Software,Abertura,Fechado OK,Atendida,instalação do IR,34,Não,março
+159,Jhuan,TRE-CE,18/03/2025 10:16:11,,,Atualização de aplicativo,Abertura,Fechado OK,Atendida,,0,Não,março
+160,Matheus Vieira,TRE-CE,18/03/2025 10:38:02,Lorena,INC0032175,Problema com token,Informação,Fechado OK,Atendida,,0,Não,março
+161,Jhuan,TRE-CE,18/03/2025 11:54:56,Lorena,INC0032175,Problema com token,Informação,Fechado OK,Atendida,,0,Não,março
+162,Leandro Souza,ANA,18/03/2025 14:36:45,,,,Sem Ação,Sem comunicação,Interrompida,,0,Não,março
+163,Matheus Acioly,ANA,18/03/2025 15:37:29,Amélia,,Conta bloqueada,Abertura,Fechado OK,Interrompida,,0,Não,março
+164,Matheus Acioly,ANA,18/03/2025 16:20:17,,,,Sem Ação,Sem Chamado,Engano,,0,Não,março
+165,Matheus Henrique,ANA,18/03/2025 16:23:02,Maristela,,Senha do SEI nao funciona,Abertura,Fechado OK,Atendida,,0,Não,março
+166,Matheus Henrique,ANA,18/03/2025 18:11:11,Fabiana,,Atualização de email institucional,Abertura,Fechado OK,Atendida,,0,Não,março
+167,Paulo,ANA,19/03/2025 08:46:29,,,Instalação de periféricos,Corretiva,Fechado OK,Atendida,,0,Sim,março
+168,Nycolas Martins,ANA,19/03/2025 09:00:54,Amélia,,Sem acesso à internet,Abertura,Fechado OK,Atendida,,0,Não,março
+169,Matheus Vieira,TRE-CE,19/03/2025 09:10:13,,,,Sem Ação,Sem comunicação,Interrompida,,0,Não,março
+170,Matheus Vieira,TRE-CE,19/03/2025 09:28:33,,,,Sem Ação,Sem comunicação,Interrompida,,0,Não,março
+171,Matheus Vieira,TRE-CE,20/03/2025 09:28:33,,,,Sem Ação,Sem comunicação,Interrompida,,0,Não,março
+172,Matheus Vieira,TRE-CE,21/03/2025 09:28:33,,,,Sem Ação,Sem comunicação,Interrompida,,0,Não,março
+173,Matheus Vieira,TRE-CE,22/03/2025 09:28:33,,,,Sem Ação,Sem comunicação,Interrompida,,0,Não,março
+174,Paulo,ANA,19/03/2025 09:42:39,Debora Vieira,,Sem acesso à internet,Abertura,Fechado OK,Atendida,,0,Não,março
+175,Nycolas Martins,ANA,19/03/2025 09:52:09,Maira Regina,,Sem acesso à internet,Abertura,Fechado OK,Atendida,,0,Não,março
+176,Paulo,ANA,19/03/2025 10:05:14,Claudia,,Configuração de impressora,Abertura,Fechado OK,Atendida,,0,Sim,março
+177,Nycolas Martins,ANA,19/03/2025 10:11:52,Mario,,Instalação de Software,Corretiva,Fechado OK,Atendida,Instalação do DEC,0,Não,março
+178,Paulo,ANA,19/03/2025 10:22:34,jlgzoby,,Sem acesso à internet,Abertura,Fechado OK,Atendida,,0,Não,março
+179,Paulo,ANA,19/03/2025 10:27:37,Gabriel Lemos,,Instalação de Software,Abertura,Fechado OK,Atendida,Sistema duplicando chamados,0,Não,março
+180,Nycolas Martins,ANA,19/03/2025 10:28:28,,,Senha do SEI nao funciona,Abertura,Fechado OK,Atendida,,0,Não,março
+181,Nycolas Martins,ANA,19/03/2025 10:32:18,Viviane Graça,,Sem acesso à internet,Abertura,Fechado OK,Atendida,,0,Não,março
+182,Paulo,ANA,19/03/2025 10:43:51,,,Sem acesso à internet,Abertura,Fechado OK,Atendida,,0,Não,março
+183,Nycolas Martins,ANA,19/03/2025 10:51:27,,,Configuração de WiFi no celular,Abertura,Fechado OK,Atendida,,0,Não,março
+184,Paulo,ANA,19/03/2025 10:51:34,Luciana Sarmento,,Senha do SEI nao funciona,Abertura,Fechado OK,Atendida,,0,Não,março
+185,Nycolas Martins,ANA,19/03/2025 11:03:53,,,,Sem Ação,Sem comunicação,Não atendida,,0,Não,março
+186,Nycolas Martins,ANA,19/03/2025 11:12:56,Luciana Sarmento,,Erro no autenticator,Sem Ação,Sem comunicação,Não atendida,,0,Não,março
+187,Nycolas Martins,ANA,19/03/2025 11:14:22,,,,Sem Ação,Sem comunicação,Não atendida,,0,Não,março
+188,Nycolas Martins,ANA,19/03/2025 11:17:22,Desdei,,Configuração de aplicativo,Corretiva,Sem comunicação,Interrompida,,0,Sim,março
+189,Nycolas Martins,ANA,19/03/2025 11:17:34,Luciana Sarmento,,,Sem Ação,Sem comunicação,Atendida,,0,,março
+190,Nycolas Martins,ANA,19/03/2025 11:22:02,Luciana Sarmento,,,Sem Ação,Sem comunicação,Abandono,Cliente dispensou o atendente,,,
+191,Nycolas Martins,ANA,19/03/2025 11:22:39,,,,Sem Ação,Sem comunicação,Não atendida,,0,Não,março
+192,Paulo,ANA,19/03/2025 11:48:59,Luciana Sarmento,,Erro no autenticator,Corretiva,Fechado OK,Atendida,,0,Sim,março
+193,Nycolas Martins,ANA,19/03/2025 12:13:42,Demetria Mendes,,Configuração de WiFi no celular,Corretiva,Fechado OK,Atendida,,0,Não,março
+194,Samara,ANA,19/03/2025 15:33:44,Jaqueline Abreu,,Conta bloqueada,Corretiva,Fechado OK,Atendida,,0,Não,março
+195,Matheus Henrique,ANA,19/03/2025 16:06:30,Alberto Nunes,,Encaminhado para N2,Encaminhamento,Fechado OK,Atendida,Instalação mal sucessedida do IR,0,Sim,março
+196,Breno Marques,ANA,20/03/2025 08:56:08,Naira,,Encaminhado para N2,Encaminhamento,Fechado OK,Atendida,,0,Não,março
+197,Paulo,ANA,20/03/2025 09:16:37,,,Sem acesso à internet,Sem Ação,Sem comunicação,Abandono,,0,Não,março
+198,Matheus Acioly,ANA,20/03/2025 09:31:02,,,Configuração de aplicativo,Corretiva,Fechado OK,Atendida,,0,Sim,março
+199,Paulo,ANA,20/03/2025 10:40:16,,,Encaminhado para N2,Encaminhamento,Fechado OK,Atendida,,0,Não,março
+200,Adalberto Filho,ANA,20/03/2025 10:40:16,,,Conta bloqueada,Sem Ação,Sem comunicação,Não atendida,Cliente reclama do Barulho,0,Não,março

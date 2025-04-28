@@ -1,0 +1,30 @@
+-- First disable foreign key checks
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- Truncate the agents table
+TRUNCATE TABLE agents;
+
+-- Re-enable foreign key checks
+SET FOREIGN_KEY_CHECKS = 1;
+
+-- Insert the correct records
+INSERT INTO agents (code, name, created_at, updated_at) VALUES
+('400501', 'Jhuanmontalvão', NOW(), NOW()),
+('400426', 'Alyane Silva', NOW(), NOW()),
+('400403', 'Paulo Henrique Ribeiro Da Silva', NOW(), NOW()),
+('400402', 'Nycollas Martins', NOW(), NOW()),
+('400423', 'Hugo Rocha', NOW(), NOW()),
+('400425', 'Debora Oliveira', NOW(), NOW()),
+('400405', 'Samara Rodrigues', NOW(), NOW()),
+('400422', 'Denys Oliveira', NOW(), NOW()),
+('400424', 'Raissa Sousa', NOW(), NOW()),
+('400427', 'Vicente Neto', NOW(), NOW()),
+('400401', 'Teddy Rodrigues', NOW(), NOW()),
+('400502', 'Matheus Vieira', NOW(), NOW()),
+('400503', 'Eduardo Rodrigues', NOW(), NOW()),
+('400504', 'Adeilson Alves', NOW(), NOW()),
+('400421', 'Matheus Accioly', NOW(), NOW()),
+('400413', 'Matheus Henrique', NOW(), NOW()),
+('400418', 'Leandro Souza', NOW(), NOW()),
+('400417', 'Breno Marques', NOW(), NOW()),
+('400416', 'Adalberto Filho', NOW(), NOW());
