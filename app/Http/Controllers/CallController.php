@@ -9,35 +9,20 @@ use App\Models\Server;
 use App\Models\ActionType;
 use App\Models\FinalStatus;
 use App\Models\CallResult;
+use App\Models\ProblemDescription;
 use Illuminate\Http\Request;
 
 class CallController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        $query = Call::with(['client', 'agent', 'server', 'actionType', 'finalStatus', 'callResult']);
+        $perPage = request('per_page', 200); // Default to 200, but allow URL parameter override
+        
+        $calls = Call::with(['agent', 'client', 'server', 'problemDescription', 'actionType', 'finalStatus', 'callResult'])
+            ->orderByRaw('CAST(ticket_number AS UNSIGNED) ASC')
+            ->paginate($perPage);
 
-        if ($request->client_id) {
-            $query->where('client_id', $request->client_id);
-        }
-
-        if ($request->agent_id) {
-            $query->where('agent_id', $request->agent_id);
-        }
-
-        if ($request->start_date) {
-            $query->whereDate('call_date', '>=', $request->start_date);
-        }
-
-        if ($request->end_date) {
-            $query->whereDate('call_date', '<=', $request->end_date);
-        }
-
-        $calls = $query->latest('call_date')->paginate(15);
-        $clients = Client::orderBy('name')->get();
-        $agents = Agent::orderBy('name')->get();
-
-        return view('calls.index', compact('calls', 'clients', 'agents'));
+        return view('calls.index', compact('calls'));
     }
 
     public function create()
@@ -96,6 +81,7 @@ class CallController extends Controller
         $actionTypes = ActionType::orderBy('name')->get();
         $finalStatuses = FinalStatus::orderBy('name')->get();
         $callResults = CallResult::orderBy('name')->get();
+        $problemDescriptions = ProblemDescription::orderBy('description')->get();
 
         return view('calls.edit', compact(
             'call',
@@ -104,7 +90,8 @@ class CallController extends Controller
             'servers',
             'actionTypes',
             'finalStatuses',
-            'callResults'
+            'callResults',
+            'problemDescriptions'
         ));
     }
 
@@ -115,20 +102,24 @@ class CallController extends Controller
             'agent_id' => 'required|exists:agents,id',
             'server_id' => 'nullable|exists:servers,id',
             'ticket_number' => 'nullable|string|max:255',
-            'problem_description' => 'required|string',
+            'problem_description_id' => 'nullable|exists:problem_descriptions,id',
             'action_type_id' => 'required|exists:action_types,id',
             'final_status_id' => 'required|exists:final_statuses,id',
             'call_result_id' => 'required|exists:call_results,id',
             'observation' => 'nullable|string',
-            'wait_time' => 'required|integer|min:0',
-            'remote_access' => 'required|boolean',
-            'call_date' => 'required|date',
+            'remote_access' => 'boolean',
         ]);
 
-        $call->update($validated);
+        // Handle boolean field
+        $validated['remote_access'] = $request->has('remote_access');
 
-        return redirect()->route('calls.index')
-            ->with('success', 'Chamado atualizado com sucesso.');
+        try {
+            $call->update($validated);
+            return redirect()->route('calls.index')->with('success', 'Chamado atualizado com sucesso.');
+        } catch (\Exception $e) {
+            \Log::error('Error updating call: ' . $e->getMessage());
+            return back()->withInput()->with('error', 'Erro ao atualizar o chamado.');
+        }
     }
 
     public function destroy(Call $call)

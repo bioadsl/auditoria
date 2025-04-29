@@ -7,19 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Call extends Model
 {
     protected $fillable = [
-        'ticket_number',
-        'agent_id',
         'client_id',
+        'agent_id',
         'server_id',
+        'ticket_number',
+        'problem_description_id',
         'action_type_id',
         'final_status_id',
         'call_result_id',
-        'problem_description_id',
-        'call_date',
         'observation',
-        'wait_time',
         'remote_access',
-        'call_number'
     ];
 
     public function agent()

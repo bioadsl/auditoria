@@ -1,145 +1,160 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Novo Chamado') }}
-        </h2>
-    </x-slot>
+@extends('layouts.app')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    <form method="POST" action="{{ route('calls.store') }}" class="space-y-6">
-                        @csrf
+@section('styles')
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+@endsection
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <x-input-label for="client_id" :value="__('Cliente')" />
-                                <select id="client_id" name="client_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
-                                    <option value="">Selecione um cliente</option>
-                                    @foreach($clients as $client)
-                                        <option value="{{ $client->id }}" {{ old('client_id') == $client->id ? 'selected' : '' }}>
-                                            {{ $client->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                <x-input-error :messages="$errors->get('client_id')" class="mt-2" />
-                            </div>
+@section('content')
+<div class="container">
+    <div class="bg-white p-3">
+        <form action="{{ route('calls.store') }}" method="POST">
+            @csrf
+            
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label>Cliente</label>
+                    <select name="client_id" class="form-select" required>
+                        <option value="">Selecione...</option>
+                        @foreach($clients as $client)
+                            <option value="{{ $client->id }}">{{ $client->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
 
-                            <div>
-                                <x-input-label for="agent_id" :value="__('Agente')" />
-                                <select id="agent_id" name="agent_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
-                                    <option value="">Selecione um agente</option>
-                                    @foreach($agents as $agent)
-                                        <option value="{{ $agent->id }}" {{ old('agent_id') == $agent->id ? 'selected' : '' }}>
-                                            {{ $agent->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                <x-input-error :messages="$errors->get('agent_id')" class="mt-2" />
-                            </div>
-
-                            <div>
-                                <x-input-label for="server_id" :value="__('Servidor')" />
-                                <select id="server_id" name="server_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
-                                    <option value="">Selecione um servidor</option>
-                                    @foreach($servers as $server)
-                                        <option value="{{ $server->id }}" {{ old('server_id') == $server->id ? 'selected' : '' }}>
-                                            {{ $server->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                <x-input-error :messages="$errors->get('server_id')" class="mt-2" />
-                            </div>
-
-                            <div>
-                                <x-input-label for="ticket_number" :value="__('Número do Ticket')" />
-                                <x-text-input id="ticket_number" name="ticket_number" type="text" class="mt-1 block w-full" :value="old('ticket_number')" />
-                                <x-input-error :messages="$errors->get('ticket_number')" class="mt-2" />
-                            </div>
-
-                            <div>
-                                <x-input-label for="action_type_id" :value="__('Tipo de Ação')" />
-                                <select id="action_type_id" name="action_type_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
-                                    <option value="">Selecione o tipo de ação</option>
-                                    @foreach($actionTypes as $type)
-                                        <option value="{{ $type->id }}" {{ old('action_type_id') == $type->id ? 'selected' : '' }}>
-                                            {{ $type->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                <x-input-error :messages="$errors->get('action_type_id')" class="mt-2" />
-                            </div>
-
-                            <div>
-                                <x-input-label for="final_status_id" :value="__('Status Final')" />
-                                <select id="final_status_id" name="final_status_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
-                                    <option value="">Selecione o status</option>
-                                    @foreach($finalStatuses as $status)
-                                        <option value="{{ $status->id }}" {{ old('final_status_id') == $status->id ? 'selected' : '' }}>
-                                            {{ $status->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                <x-input-error :messages="$errors->get('final_status_id')" class="mt-2" />
-                            </div>
-
-                            <div>
-                                <x-input-label for="call_result_id" :value="__('Resultado')" />
-                                <select id="call_result_id" name="call_result_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
-                                    <option value="">Selecione o resultado</option>
-                                    @foreach($callResults as $result)
-                                        <option value="{{ $result->id }}" {{ old('call_result_id') == $result->id ? 'selected' : '' }}>
-                                            {{ $result->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                <x-input-error :messages="$errors->get('call_result_id')" class="mt-2" />
-                            </div>
-
-                            <div>
-                                <x-input-label for="wait_time" :value="__('Tempo de Espera (minutos)')" />
-                                <x-text-input id="wait_time" name="wait_time" type="number" class="mt-1 block w-full" :value="old('wait_time', 0)" required min="0" />
-                                <x-input-error :messages="$errors->get('wait_time')" class="mt-2" />
-                            </div>
-
-                            <div>
-                                <x-input-label for="remote_access" :value="__('Acesso Remoto')" />
-                                <select id="remote_access" name="remote_access" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
-                                    <option value="1" {{ old('remote_access') == '1' ? 'selected' : '' }}>Sim</option>
-                                    <option value="0" {{ old('remote_access') == '0' ? 'selected' : '' }}>Não</option>
-                                </select>
-                                <x-input-error :messages="$errors->get('remote_access')" class="mt-2" />
-                            </div>
-
-                            <div>
-                                <x-input-label for="call_date" :value="__('Data do Chamado')" />
-                                <x-text-input id="call_date" name="call_date" type="datetime-local" class="mt-1 block w-full" :value="old('call_date', now()->format('Y-m-d\TH:i'))" required />
-                                <x-input-error :messages="$errors->get('call_date')" class="mt-2" />
-                            </div>
-                        </div>
-
-                        <div class="mt-6">
-                            <x-input-label for="problem_description" :value="__('Descrição do Problema')" />
-                            <textarea id="problem_description" name="problem_description" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" rows="3">{{ old('problem_description') }}</textarea>
-                            <x-input-error :messages="$errors->get('problem_description')" class="mt-2" />
-                        </div>
-
-                        <div class="mt-6">
-                            <x-input-label for="observation" :value="__('Observação')" />
-                            <textarea id="observation" name="observation" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" rows="3">{{ old('observation') }}</textarea>
-                            <x-input-error :messages="$errors->get('observation')" class="mt-2" />
-                        </div>
-
-                        <div class="flex items-center gap-4 mt-6">
-                            <x-primary-button>{{ __('Salvar') }}</x-primary-button>
-                            <a href="{{ route('calls.index') }}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700">
-                                {{ __('Cancelar') }}
-                            </a>
-                        </div>
-                    </form>
+                <div class="col-md-6">
+                    <label>Agente</label>
+                    <select name="agent_id" class="form-select" required>
+                        <option value="">Selecione...</option>
+                        @foreach($agents as $agent)
+                            <option value="{{ $agent->id }}">{{ $agent->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
-        </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label>Servidor</label>
+                    <input type="text" id="server_search" class="form-control" placeholder="Buscar servidor...">
+                    <input type="hidden" id="server_id" name="server_id">
+                </div>
+
+                <div class="col-md-6">
+                    <label>Número do Ticket</label>
+                    <input type="text" name="ticket_number" class="form-control">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label>Tipo de Ação</label>
+                    <select name="action_type_id" class="form-select" required>
+                        <option value="">Selecione...</option>
+                        @foreach($actionTypes as $type)
+                            <option value="{{ $type->id }}">{{ $type->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label>Status Final</label>
+                    <select name="final_status_id" class="form-select" required>
+                        <option value="">Selecione...</option>
+                        @foreach($finalStatuses as $status)
+                            <option value="{{ $status->id }}">{{ $status->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label>Resultado</label>
+                    <select name="call_result_id" class="form-select" required>
+                        <option value="">Selecione...</option>
+                        @foreach($callResults as $result)
+                            <option value="{{ $result->id }}">{{ $result->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label>Acesso Remoto</label>
+                    <div class="form-check form-switch mt-2">
+                        <input type="checkbox" name="remote_access" class="form-check-input" role="switch" value="1">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-12">
+                    <label>Descrição do Problema</label>
+                    <input type="text" id="problem_description_search" class="form-control" placeholder="Buscar descrição...">
+                    <input type="hidden" id="problem_description_id" name="problem_description_id">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-12">
+                    <label>Observações</label>
+                    <textarea name="observation" class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                <a href="{{ route('calls.index') }}" class="btn btn-secondary">Voltar</a>
+            </div>
+        </form>
     </div>
-</x-app-layout>
+</div>
+@endsection
+
+@section('scripts')
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('#server_search').autocomplete({
+        source: function(request, response) {
+            $.get('{{ route("autocomplete.servers") }}', {
+                search: request.term
+            }).done(function(data) {
+                response(data.map(function(item) {
+                    return {
+                        label: item.name,
+                        value: item.id
+                    };
+                }));
+            });
+        },
+        minLength: 2,
+        select: function(event, ui) {
+            event.preventDefault();
+            $(this).val(ui.item.label);
+            $('#server_id').val(ui.item.value);
+        }
+    });
+
+    $('#problem_description_search').autocomplete({
+        source: function(request, response) {
+            $.get('{{ route("autocomplete.problem-descriptions") }}', {
+                search: request.term
+            }).done(function(data) {
+                response(data.map(function(item) {
+                    return {
+                        label: item.description,
+                        value: item.id
+                    };
+                }));
+            });
+        },
+        minLength: 2,
+        select: function(event, ui) {
+            event.preventDefault();
+            $(this).val(ui.item.label);
+            $('#problem_description_id').val(ui.item.value);
+        }
+    });
+});
+</script>
+@endsection

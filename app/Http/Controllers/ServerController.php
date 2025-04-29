@@ -4,49 +4,34 @@ namespace App\Http\Controllers;
 
 use App\Models\Server;
 use Illuminate\Http\Request;
-use Illuminate\Http\JsonResponse;
 
 class ServerController extends Controller
 {
-    public function index(): JsonResponse
+    public function autocomplete(Request $request)
     {
-        $servers = Server::with(['client', 'calls'])->get();
-        return response()->json($servers);
+        $search = $request->get('term');
+        $results = Server::where('name', 'LIKE', "%{$search}%")
+            ->select('id', 'name')
+            ->orderBy('name')
+            ->take(10)
+            ->get()
+            ->map(function($item) {
+                return [
+                    'id' => $item->id,
+                    'label' => $item->name,
+                    'value' => $item->name
+                ];
+            });
+
+        return response()->json($results);
     }
 
-    public function store(Request $request): JsonResponse
+    public function store(Request $request)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'department' => 'nullable|string|max:255',
-            'client_id' => 'required|exists:clients,id'
+        $server = Server::create([
+            'name' => $request->name
         ]);
-
-        $server = Server::create($validated);
-        return response()->json($server, 201);
-    }
-
-    public function show(Server $server): JsonResponse
-    {
-        $server->load(['client', 'calls']);
+        
         return response()->json($server);
     }
-
-    public function update(Request $request, Server $server): JsonResponse
-    {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'department' => 'nullable|string|max:255',
-            'client_id' => 'required|exists:clients,id'
-        ]);
-
-        $server->update($validated);
-        return response()->json($server);
-    }
-
-    public function destroy(Server $server): JsonResponse
-    {
-        $server->delete();
-        return response()->json(null, 204);
-    }
-} 
+}
