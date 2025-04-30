@@ -6,7 +6,7 @@
 
 <div class="container">
     <div class="bg-white p-3">
-        <form action="{{ url('/calls/' . $call->id) }}" method="POST">
+        <form action="{{ route('calls.update', $call->id) }}" method="POST">
             @csrf
             @method('PUT')
             
@@ -177,88 +177,59 @@ label {
 </style>
 
 @section('styles')
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
 @endsection
 
-<!-- In the form, update the server and problem description fields -->
-<div class="row mb-3">
-    <div class="col-md-6">
-        <label>Servidor</label>
-        <select id="server_search" class="form-select" style="width: 100%">
-            @if($call->server)
-                <option value="{{ $call->server->id }}" selected>{{ $call->server->name }}</option>
-            @endif
-        </select>
-        <input type="hidden" id="server_id" name="server_id" value="{{ old('server_id', $call->server_id) }}">
-    </div>
-    <div class="col-12">
-        <label>Descrição do Problema</label>
-        <select id="problem_description_search" class="form-select" style="width: 100%">
-            @if($call->problemDescription)
-                <option value="{{ $call->problemDescription->id }}" selected>{{ $call->problemDescription->description }}</option>
-            @endif
-        </select>
-        <input type="hidden" id="problem_description_id" name="problem_description_id" value="{{ old('problem_description_id', $call->problem_description_id) }}">
-    </div>
-</div>
-
+<!-- Remove duplicate fields outside the form and keep only the ones inside -->
 @section('scripts')
-<!-- Add after your existing scripts -->
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-<script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+<script type="text/javascript">
 $(document).ready(function() {
-    $('#server_search').select2({
-        placeholder: 'Buscar servidor...',
-        minimumInputLength: 2,
-        ajax: {
-            url: '{{ route("autocomplete.servers") }}',
-            dataType: 'json',
-            delay: 250,
-            data: function(params) {
-                return {
-                    search: params.term
-                };
-            },
-            processResults: function(data) {
-                return {
-                    results: data.map(function(item) {
-                        return {
-                            id: item.id,
-                            text: item.name
-                        };
-                    })
-                };
-            }
+    $('#server_search').autocomplete({
+        source: function(request, response) {
+            $.ajax({
+                url: '{{ route("autocomplete.servers") }}',
+                dataType: 'json',
+                data: {
+                    term: request.term
+                },
+                success: function(data) {
+                    response(data);
+                }
+            });
+        },
+        minLength: 2,
+        select: function(event, ui) {
+            $('#server_id').val(ui.item.id);
+            $('#server_search').val(ui.item.name);
+            return false;
         }
-    }).on('select2:select', function(e) {
-        $('#server_id').val(e.params.data.id);
     });
 
-    $('#problem_description_search').select2({
-        placeholder: 'Buscar descrição...',
-        minimumInputLength: 2,
-        ajax: {
-            url: '{{ route("autocomplete.problem-descriptions") }}',
-            dataType: 'json',
-            delay: 250,
-            data: function(params) {
-                return {
-                    search: params.term
-                };
-            },
-            processResults: function(data) {
-                return {
-                    results: data.map(function(item) {
-                        return {
-                            id: item.id,
-                            text: item.description
-                        };
-                    })
-                };
-            }
+    $('#problem_description_search').autocomplete({
+        source: function(request, response) {
+            $.ajax({
+                url: '{{ route("autocomplete.problem-descriptions") }}',
+                dataType: 'json',
+                data: {
+                    term: request.term
+                },
+                success: function(data) {
+                    console.log('Problem Description Data:', data);
+                    response(data);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        },
+        minLength: 2,
+        select: function(event, ui) {
+            $('#problem_description_id').val(ui.item.id);
+            $('#problem_description_search').val(ui.item.name);
+            return false;
         }
-    }).on('select2:select', function(e) {
-        $('#problem_description_id').val(e.params.data.id);
     });
 });
 </script>

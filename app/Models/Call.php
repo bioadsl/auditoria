@@ -11,12 +11,12 @@ class Call extends Model
         'agent_id',
         'server_id',
         'ticket_number',
-        'problem_description_id',
         'action_type_id',
         'final_status_id',
         'call_result_id',
-        'observation',
+        'problem_description_id',
         'remote_access',
+        'observation'
     ];
 
     public function agent()

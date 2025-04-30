@@ -10,28 +10,20 @@ class ProblemDescriptionController extends Controller
     public function autocomplete(Request $request)
     {
         $search = $request->get('term');
-        $results = ProblemDescription::where('description', 'LIKE', "%{$search}%")
-            ->select('id', 'description as label', 'description')
+        
+        $descriptions = ProblemDescription::where('description', 'LIKE', "%{$search}%")
+            ->select('id', 'description')
             ->orderBy('description')
-            ->take(10)
+            ->limit(10)
             ->get()
-            ->map(function($item) {
+            ->map(function($desc) {
                 return [
-                    'id' => $item->id,
-                    'label' => $item->description,
-                    'value' => $item->description
+                    'id' => $desc->id,
+                    'name' => $desc->description,
+                    'label' => $desc->description
                 ];
             });
-
-        return response()->json($results);
-    }
-
-    public function store(Request $request)
-    {
-        $description = ProblemDescription::create([
-            'description' => $request->description
-        ]);
         
-        return response()->json($description);
+        return response()->json($descriptions);
     }
 }

@@ -12,8 +12,28 @@ use App\Models\CallResult;
 use App\Models\ProblemDescription;
 use Illuminate\Http\Request;
 
+/**
+ * @OA\Info(
+ *     title="Auditoria API",
+ *     version="1.0.0"
+ * )
+ * 
+ * @OA\PathItem(
+ *     path="/calls"
+ * )
+ */
 class CallController extends Controller
 {
+    /**
+     * @OA\Get(
+     *     path="/calls",
+     *     summary="List all calls",
+     *     @OA\Response(
+     *         response=200,
+     *         description="Success"
+     *     )
+     * )
+     */
     public function index()
     {
         $perPage = request('per_page', 200); // Default to 200, but allow URL parameter override
@@ -44,6 +64,31 @@ class CallController extends Controller
         ));
     }
 
+    /**
+     * @OA\Post(
+     *     path="/calls",
+     *     tags={"Calls"},
+     *     summary="Create a new call",
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             required={"client_id","agent_id","action_type_id","final_status_id","call_result_id"},
+     *             @OA\Property(property="client_id", type="integer"),
+     *             @OA\Property(property="agent_id", type="integer"),
+     *             @OA\Property(property="server_id", type="integer", nullable=true),
+     *             @OA\Property(property="ticket_number", type="string", nullable=true),
+     *             @OA\Property(property="problem_description_id", type="integer", nullable=true),
+     *             @OA\Property(property="action_type_id", type="integer"),
+     *             @OA\Property(property="final_status_id", type="integer"),
+     *             @OA\Property(property="call_result_id", type="integer"),
+     *             @OA\Property(property="remote_access", type="boolean"),
+     *             @OA\Property(property="observation", type="string", nullable=true)
+     *         )
+     *     ),
+     *     @OA\Response(response=201, description="Call created successfully"),
+     *     @OA\Response(response=422, description="Validation error")
+     * )
+     */
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -95,30 +140,72 @@ class CallController extends Controller
         ));
     }
 
+    /**
+     * @OA\Put(
+     *     path="/calls/{id}",
+     *     tags={"Calls"},
+     *     summary="Update an existing call",
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             required={"client_id","agent_id","action_type_id","final_status_id","call_result_id"},
+     *             @OA\Property(property="client_id", type="integer"),
+     *             @OA\Property(property="agent_id", type="integer"),
+     *             @OA\Property(property="server_id", type="integer", nullable=true),
+     *             @OA\Property(property="ticket_number", type="string", nullable=true),
+     *             @OA\Property(property="problem_description_id", type="integer", nullable=true),
+     *             @OA\Property(property="action_type_id", type="integer"),
+     *             @OA\Property(property="final_status_id", type="integer"),
+     *             @OA\Property(property="call_result_id", type="integer"),
+     *             @OA\Property(property="remote_access", type="boolean"),
+     *             @OA\Property(property="observation", type="string", nullable=true)
+     *         )
+     *     ),
+     *     @OA\Response(response=200, description="Call updated successfully"),
+     *     @OA\Response(response=404, description="Call not found"),
+     *     @OA\Response(response=422, description="Validation error")
+     * )
+     */
     public function update(Request $request, Call $call)
     {
-        $validated = $request->validate([
-            'client_id' => 'required|exists:clients,id',
-            'agent_id' => 'required|exists:agents,id',
-            'server_id' => 'nullable|exists:servers,id',
-            'ticket_number' => 'nullable|string|max:255',
-            'problem_description_id' => 'nullable|exists:problem_descriptions,id',
-            'action_type_id' => 'required|exists:action_types,id',
-            'final_status_id' => 'required|exists:final_statuses,id',
-            'call_result_id' => 'required|exists:call_results,id',
-            'observation' => 'nullable|string',
-            'remote_access' => 'boolean',
-        ]);
-
-        // Handle boolean field
-        $validated['remote_access'] = $request->has('remote_access');
-
         try {
+            \Log::info('Update Call Request:', $request->all()); // Debug log
+
+            $validated = $request->validate([
+                'client_id' => 'required',
+                'agent_id' => 'required',
+                'server_id' => 'nullable',
+                'ticket_number' => 'nullable',
+                'action_type_id' => 'required',
+                'final_status_id' => 'required',
+                'call_result_id' => 'required',
+                'problem_description_id' => 'nullable',
+                'remote_access' => 'nullable',
+                'observation' => 'nullable'
+            ]);
+
+            // Convert empty strings to null
+            $validated['server_id'] = $request->server_id ?: null;
+            $validated['problem_description_id'] = $request->problem_description_id ?: null;
+            
+            \Log::info('Validated Data:', $validated); // Debug log
+            
             $call->update($validated);
-            return redirect()->route('calls.index')->with('success', 'Chamado atualizado com sucesso.');
+            
+            \Log::info('Call Updated:', $call->toArray()); // Debug log
+
+            return redirect()->route('calls.index')
+                ->with('success', 'Chamado atualizado com sucesso.');
+                
         } catch (\Exception $e) {
-            \Log::error('Error updating call: ' . $e->getMessage());
-            return back()->withInput()->with('error', 'Erro ao atualizar o chamado.');
+            \Log::error('Call Update Error: ' . $e->getMessage());
+            return back()->with('error', 'Erro ao atualizar o chamado.');
         }
     }
 

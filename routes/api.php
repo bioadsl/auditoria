@@ -7,7 +7,8 @@ use App\Http\Controllers\AgentController;
 use App\Http\Controllers\ServerController;
 use App\Http\Controllers\CallController;
 use App\Http\Controllers\ReportController;
-
+use App\Http\Controllers\Api\CallController as ApiCallController;
+// Route facade already imported above
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,6 +23,7 @@ use App\Http\Controllers\ReportController;
 Route::get('/ping', function () {
     return response()->json(['status' => 'ok']);
 });
+Route::get('/calls', [CallController::class, 'index']);
 
 // Rotas para Clientes (Órgãos)
 Route::apiResource('clients', ClientController::class);
@@ -34,6 +36,7 @@ Route::apiResource('servers', ServerController::class);
 
 // Rotas para Chamados
 Route::apiResource('calls', CallController::class);
+
 
 // Rotas para Relatórios
 Route::prefix('reports')->group(function () {

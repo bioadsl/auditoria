@@ -9,21 +9,19 @@ class ServerController extends Controller
 {
     public function autocomplete(Request $request)
     {
-        $search = $request->get('term');
-        $results = Server::where('name', 'LIKE', "%{$search}%")
-            ->select('id', 'name')
-            ->orderBy('name')
-            ->take(10)
+        $search = $request->get('search'); // Changed from 'term' to 'search'
+        $servers = Server::where('name', 'LIKE', "%{$search}%")
+            ->limit(10)
             ->get()
-            ->map(function($item) {
+            ->map(function($server) {
                 return [
-                    'id' => $item->id,
-                    'label' => $item->name,
-                    'value' => $item->name
+                    'id' => $server->id,
+                    'value' => $server->name, // Added value for autocomplete
+                    'label' => $server->name
                 ];
             });
-
-        return response()->json($results);
+        
+        return response()->json($servers);
     }
 
     public function store(Request $request)

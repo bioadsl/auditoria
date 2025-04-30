@@ -1,0 +1,177 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Auditoria API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/calls": {
+            "get": {
+                "summary": "List all calls",
+                "operationId": "33a4f39d71f646f958d6c1c7950a9dac",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Calls"
+                ],
+                "summary": "Create a new call",
+                "operationId": "a4157d2849a432e2f799009027cab7b8",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "client_id",
+                                    "agent_id",
+                                    "action_type_id",
+                                    "final_status_id",
+                                    "call_result_id"
+                                ],
+                                "properties": {
+                                    "client_id": {
+                                        "type": "integer"
+                                    },
+                                    "agent_id": {
+                                        "type": "integer"
+                                    },
+                                    "server_id": {
+                                        "type": "integer",
+                                        "nullable": true
+                                    },
+                                    "ticket_number": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "problem_description_id": {
+                                        "type": "integer",
+                                        "nullable": true
+                                    },
+                                    "action_type_id": {
+                                        "type": "integer"
+                                    },
+                                    "final_status_id": {
+                                        "type": "integer"
+                                    },
+                                    "call_result_id": {
+                                        "type": "integer"
+                                    },
+                                    "remote_access": {
+                                        "type": "boolean"
+                                    },
+                                    "observation": {
+                                        "type": "string",
+                                        "nullable": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Call created successfully"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/calls/{id}": {
+            "put": {
+                "tags": [
+                    "Calls"
+                ],
+                "summary": "Update an existing call",
+                "operationId": "1dcef54a4450288957c25f26964f26c4",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "client_id",
+                                    "agent_id",
+                                    "action_type_id",
+                                    "final_status_id",
+                                    "call_result_id"
+                                ],
+                                "properties": {
+                                    "client_id": {
+                                        "type": "integer"
+                                    },
+                                    "agent_id": {
+                                        "type": "integer"
+                                    },
+                                    "server_id": {
+                                        "type": "integer",
+                                        "nullable": true
+                                    },
+                                    "ticket_number": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "problem_description_id": {
+                                        "type": "integer",
+                                        "nullable": true
+                                    },
+                                    "action_type_id": {
+                                        "type": "integer"
+                                    },
+                                    "final_status_id": {
+                                        "type": "integer"
+                                    },
+                                    "call_result_id": {
+                                        "type": "integer"
+                                    },
+                                    "remote_access": {
+                                        "type": "boolean"
+                                    },
+                                    "observation": {
+                                        "type": "string",
+                                        "nullable": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Call updated successfully"
+                    },
+                    "404": {
+                        "description": "Call not found"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Calls",
+            "description": "Calls"
+        }
+    ]
+}
