@@ -1,0 +1,20 @@
+.search-results-container {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.search-result-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+.search-result-item:hover {
+    background-color: #f8f9fa;
+}
+
+.no-results {
+    padding: 15px;
+    text-align: center;
+    color: #6c757d;
+}

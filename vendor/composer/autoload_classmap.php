@@ -20,6 +20,8 @@ return array(
     'App\\Http\\Controllers\\ProblemDescriptionController' => $baseDir . '/app/Http/Controllers/ProblemDescriptionController.php',
     'App\\Http\\Controllers\\ReportController' => $baseDir . '/app/Http/Controllers/ReportController.php',
     'App\\Http\\Controllers\\ServerController' => $baseDir . '/app/Http/Controllers/ServerController.php',
+    'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
+    'App\\Http\\Middleware\\NoCache' => $baseDir . '/app/Http/Middleware/NoCache.php',
     'App\\Models\\ActionType' => $baseDir . '/app/Models/ActionType.php',
     'App\\Models\\Agent' => $baseDir . '/app/Models/Agent.php',
     'App\\Models\\Call' => $baseDir . '/app/Models/Call.php',

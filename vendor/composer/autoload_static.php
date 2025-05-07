@@ -564,6 +564,8 @@ class ComposerStaticInitd8f67b824a1bf31c8999ead558d9b485
         'App\\Http\\Controllers\\ProblemDescriptionController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProblemDescriptionController.php',
         'App\\Http\\Controllers\\ReportController' => __DIR__ . '/../..' . '/app/Http/Controllers/ReportController.php',
         'App\\Http\\Controllers\\ServerController' => __DIR__ . '/../..' . '/app/Http/Controllers/ServerController.php',
+        'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
+        'App\\Http\\Middleware\\NoCache' => __DIR__ . '/../..' . '/app/Http/Middleware/NoCache.php',
         'App\\Models\\ActionType' => __DIR__ . '/../..' . '/app/Models/ActionType.php',
         'App\\Models\\Agent' => __DIR__ . '/../..' . '/app/Models/Agent.php',
         'App\\Models\\Call' => __DIR__ . '/../..' . '/app/Models/Call.php',

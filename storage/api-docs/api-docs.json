@@ -1,25 +1,34 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Auditoria API",
+        "title": "API de Auditoria",
+        "description": "API para gerenciamento de chamados de auditoria",
+        "contact": {
+            "email": "contato@auditoria.com"
+        },
         "version": "1.0.0"
     },
     "paths": {
         "/calls": {
             "get": {
-                "summary": "List all calls",
+                "tags": [
+                    "Chamados"
+                ],
+                "summary": "Lista todos os chamados",
+                "description": "Retorna uma lista de todos os chamados ordenados por data de criação",
                 "operationId": "33a4f39d71f646f958d6c1c7950a9dac",
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Lista de chamados recuperada com sucesso"
                     }
                 }
             },
             "post": {
                 "tags": [
-                    "Calls"
+                    "Chamados"
                 ],
-                "summary": "Create a new call",
+                "summary": "Cria um novo chamado",
+                "description": "Cria um novo registro de chamado no sistema",
                 "operationId": "a4157d2849a432e2f799009027cab7b8",
                 "requestBody": {
                     "required": true,
@@ -29,43 +38,62 @@
                                 "required": [
                                     "client_id",
                                     "agent_id",
+                                    "server_name",
                                     "action_type_id",
                                     "final_status_id",
-                                    "call_result_id"
+                                    "call_result_id",
+                                    "call_date",
+                                    "problem_description"
                                 ],
                                 "properties": {
                                     "client_id": {
+                                        "description": "ID do cliente",
                                         "type": "integer"
                                     },
                                     "agent_id": {
+                                        "description": "ID do agente",
                                         "type": "integer"
                                     },
-                                    "server_id": {
-                                        "type": "integer",
-                                        "nullable": true
+                                    "server_name": {
+                                        "description": "Nome do servidor",
+                                        "type": "string"
                                     },
                                     "ticket_number": {
+                                        "description": "Número do ticket",
                                         "type": "string",
-                                        "nullable": true
-                                    },
-                                    "problem_description_id": {
-                                        "type": "integer",
                                         "nullable": true
                                     },
                                     "action_type_id": {
+                                        "description": "ID do tipo de ação",
                                         "type": "integer"
                                     },
                                     "final_status_id": {
+                                        "description": "ID do status final",
                                         "type": "integer"
                                     },
                                     "call_result_id": {
+                                        "description": "ID do resultado do chamado",
                                         "type": "integer"
                                     },
+                                    "call_date": {
+                                        "description": "Data do chamado (d/m/Y H:i:s)",
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
                                     "remote_access": {
-                                        "type": "boolean"
+                                        "description": "Indica se houve acesso remoto",
+                                        "type": "boolean",
+                                        "nullable": true
+                                    },
+                                    "problem_description": {
+                                        "description": "Descrição do problema",
+                                        "type": "string",
+                                        "maxLength": 1000
                                     },
                                     "observation": {
+                                        "description": "Observações adicionais",
                                         "type": "string",
+                                        "maxLength": 1000,
                                         "nullable": true
                                     }
                                 },
@@ -75,94 +103,42 @@
                     }
                 },
                 "responses": {
-                    "201": {
-                        "description": "Call created successfully"
+                    "302": {
+                        "description": "Chamado criado com sucesso, redirecionando"
                     },
                     "422": {
-                        "description": "Validation error"
+                        "description": "Erro de validação",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Dados inválidos"
+                                        },
+                                        "errors": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
-        "/calls/{id}": {
-            "put": {
+        "/calls/create": {
+            "get": {
                 "tags": [
-                    "Calls"
+                    "Chamados"
                 ],
-                "summary": "Update an existing call",
-                "operationId": "1dcef54a4450288957c25f26964f26c4",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "required": [
-                                    "client_id",
-                                    "agent_id",
-                                    "action_type_id",
-                                    "final_status_id",
-                                    "call_result_id"
-                                ],
-                                "properties": {
-                                    "client_id": {
-                                        "type": "integer"
-                                    },
-                                    "agent_id": {
-                                        "type": "integer"
-                                    },
-                                    "server_id": {
-                                        "type": "integer",
-                                        "nullable": true
-                                    },
-                                    "ticket_number": {
-                                        "type": "string",
-                                        "nullable": true
-                                    },
-                                    "problem_description_id": {
-                                        "type": "integer",
-                                        "nullable": true
-                                    },
-                                    "action_type_id": {
-                                        "type": "integer"
-                                    },
-                                    "final_status_id": {
-                                        "type": "integer"
-                                    },
-                                    "call_result_id": {
-                                        "type": "integer"
-                                    },
-                                    "remote_access": {
-                                        "type": "boolean"
-                                    },
-                                    "observation": {
-                                        "type": "string",
-                                        "nullable": true
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
+                "summary": "Exibe formulário de criação",
+                "description": "Retorna a view com o formulário para criar um novo chamado",
+                "operationId": "c7e6978bf0d174f7b35b749c69ab03f8",
                 "responses": {
                     "200": {
-                        "description": "Call updated successfully"
-                    },
-                    "404": {
-                        "description": "Call not found"
-                    },
-                    "422": {
-                        "description": "Validation error"
+                        "description": "Formulário exibido com sucesso"
                     }
                 }
             }
@@ -170,8 +146,8 @@
     },
     "tags": [
         {
-            "name": "Calls",
-            "description": "Calls"
+            "name": "Chamados",
+            "description": "Chamados"
         }
     ]
 }

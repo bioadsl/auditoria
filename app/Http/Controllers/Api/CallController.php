@@ -10,10 +10,27 @@ class CallController extends Controller
 {
     public function index()
     {
-        $calls = Call::with(['agent', 'client', 'server', 'problemDescription', 'actionType', 'finalStatus', 'callResult'])
+        try {
+            $calls = Call::with([
+                'agent', 
+                'client', 
+                'actionType', 
+                'finalStatus', 
+                'callResult'
+            ])
             ->orderByRaw('CAST(ticket_number AS UNSIGNED) ASC')
             ->get();
 
-        return response()->json($calls);
+            return response()->json([
+                'success' => true,
+                'data' => $calls
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Erro ao buscar os chamados',
+                'error' => $e->getMessage()
+            ], 500);
+        }
     }
 }
