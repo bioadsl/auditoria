@@ -85,7 +85,7 @@ Aplicação web desenvolvida em Laravel para análise e auditoria de chamados t�
 
 ```bash
 # Clone o projeto
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
+git clone https://github.com/bioadsl/auditoria.git
 cd nome-do-repositorio
 
 # Instale as dependências
