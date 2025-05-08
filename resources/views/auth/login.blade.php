@@ -6,7 +6,7 @@
         <div class="col-md-6">
             <div class="card shadow-lg border-0 rounded-lg mt-5">
                 <div class="card-header bg-primary text-white text-center py-4">
-                    <h3 class="mb-0">Login</h3>
+                    <h3 class="mb-0"><i class="bi bi-shield-check"></i>Login Auditoria</h3>
                 </div>
                 <div class="card-body p-4">
                     <form method="POST" action="{{ route('login') }}">

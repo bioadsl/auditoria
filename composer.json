@@ -11,6 +11,7 @@
         "laravel/framework": "^12.0",
         "laravel/sanctum": "*",
         "laravel/tinker": "^2.10.1",
+        "league/csv": "^9.23",
         "owen-it/laravel-auditing": "^14.0"
     },
     "require-dev": {

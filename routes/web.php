@@ -22,7 +22,7 @@ Route::post('/logout', [AuthController::class, 'logout'])
     ->name('logout');
 
 // Rotas autenticadas
-Route::middleware(['web', 'auth'])->group(function () {
+Route::middleware('auth')->group(function () {
     // Rota inicial
     Route::get('/', function () {
         return redirect()->route('calls.index');
@@ -38,18 +38,15 @@ Route::middleware(['web', 'auth'])->group(function () {
     });
     Route::resource('servers', ServerController::class);
     
-    // API routes para agentes
-    Route::prefix('api')->group(function () {
-        Route::resource('agent', AgentController::class);
-    });
-    
-    // Web routes para agentes
+    // Web routes para agentes (usando AgentsController para views)
     Route::resource('agents', AgentsController::class);
     
     // Rotas de descrições de problemas
     Route::prefix('problem-descriptions')->group(function () {
+        Route::get('search', [ProblemDescriptionController::class, 'search'])
+            ->name('problem-descriptions.search');
         Route::get('autocomplete', [ProblemDescriptionController::class, 'autocomplete'])
-            ->name('problem_descriptions.autocomplete');
+            ->name('problem-descriptions.autocomplete');
     });
     Route::resource('problem-descriptions', ProblemDescriptionController::class)->names([
         'index' => 'problem_descriptions.index',
@@ -60,4 +57,17 @@ Route::middleware(['web', 'auth'])->group(function () {
         'update' => 'problem_descriptions.update',
         'destroy' => 'problem_descriptions.destroy'
     ]);
+    
+    // Rotas de relatórios
+    Route::prefix('reports')->name('reports.')->group(function () {
+        Route::get('/dashboard', [ReportController::class, 'dashboardView'])->name('dashboard');
+        Route::get('/calls', [ReportController::class, 'callsView'])->name('calls');
+        Route::get('/actions', [ReportController::class, 'actionsView'])->name('actions');
+        Route::get('/status', [ReportController::class, 'statusView'])->name('status');
+        Route::get('/remote-access', [ReportController::class, 'remoteAccessView'])->name('remote-access');
+        Route::get('/monthly', [ReportController::class, 'monthlyView'])->name('monthly');
+        Route::get('/quality', [ReportController::class, 'qualityView'])->name('quality');
+        Route::get('/import', [ImportController::class, 'index'])->name('import.index');
+        Route::post('/import', [ImportController::class, 'import'])->name('import.process');
+    });
 });

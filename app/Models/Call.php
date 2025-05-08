@@ -18,7 +18,7 @@ class Call extends Model
         'call_result_id',
         'call_date',
         'remote_access',
-        'problem_description_id', // Alterado para usar o ID ao invés da descrição
+        'problem_description_id',
         'observation'
     ];
 

@@ -1,0 +1,152 @@
+-- Criar banco de dados
+CREATE DATABASE IF NOT EXISTS auditoria;
+USE auditoria;
+
+-- Criar tabela de clientes
+CREATE TABLE clients (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP NULL,
+    updated_at TIMESTAMP NULL
+);
+
+-- Criar tabela de agentes
+CREATE TABLE agents (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    code VARCHAR(255) UNIQUE,
+    name VARCHAR(255) NOT NULL,
+    active BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP NULL,
+    updated_at TIMESTAMP NULL
+);
+
+-- Criar tabela de action_types
+CREATE TABLE action_types (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP NULL,
+    updated_at TIMESTAMP NULL
+);
+
+-- Criar tabela de final_statuses
+CREATE TABLE final_statuses (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) UNIQUE NOT NULL,
+    created_at TIMESTAMP NULL,
+    updated_at TIMESTAMP NULL
+);
+
+-- Criar tabela de call_results
+CREATE TABLE call_results (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) UNIQUE NOT NULL,
+    created_at TIMESTAMP NULL,
+    updated_at TIMESTAMP NULL
+);
+
+-- Criar tabela de problem_descriptions
+CREATE TABLE problem_descriptions (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    description VARCHAR(255) UNIQUE NOT NULL,
+    created_at TIMESTAMP NULL,
+    updated_at TIMESTAMP NULL
+);
+
+-- Criar tabela de servers
+CREATE TABLE servers (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    department VARCHAR(255) NULL,
+    client_id BIGINT UNSIGNED NOT NULL,
+    created_at TIMESTAMP NULL,
+    updated_at TIMESTAMP NULL,
+    FOREIGN KEY (client_id) REFERENCES clients(id) ON DELETE CASCADE
+);
+
+-- Criar tabela de calls
+CREATE TABLE calls (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    client_id BIGINT UNSIGNED NOT NULL,
+    agent_id BIGINT UNSIGNED NOT NULL,
+    server_id BIGINT UNSIGNED NULL,
+    ticket_number VARCHAR(255) NULL,
+    call_number VARCHAR(255) NULL,
+    action_type_id BIGINT UNSIGNED NOT NULL,
+    final_status_id BIGINT UNSIGNED NOT NULL,
+    call_result_id BIGINT UNSIGNED NOT NULL,
+    call_date DATETIME NOT NULL,
+    remote_access BOOLEAN DEFAULT FALSE,
+    problem_description_id BIGINT UNSIGNED NOT NULL,
+    observation TEXT NULL,
+    created_at TIMESTAMP NULL,
+    updated_at TIMESTAMP NULL,
+    FOREIGN KEY (client_id) REFERENCES clients(id),
+    FOREIGN KEY (agent_id) REFERENCES agents(id),
+    FOREIGN KEY (server_id) REFERENCES servers(id),
+    FOREIGN KEY (action_type_id) REFERENCES action_types(id),
+    FOREIGN KEY (final_status_id) REFERENCES final_statuses(id),
+    FOREIGN KEY (call_result_id) REFERENCES call_results(id),
+    FOREIGN KEY (problem_description_id) REFERENCES problem_descriptions(id)
+);
+
+-- Inserir dados de teste
+INSERT INTO clients (name, created_at) VALUES 
+('Cliente Teste', NOW());
+
+INSERT INTO agents (code, name, active, created_at) VALUES 
+('AGT001', 'Agente Teste', true, NOW());
+
+INSERT INTO action_types (name, created_at) VALUES 
+('Manutenção', NOW()),
+('Suporte', NOW());
+
+INSERT INTO final_statuses (name, created_at) VALUES 
+('Concluído', NOW()),
+('Pendente', NOW());
+
+INSERT INTO call_results (name, created_at) VALUES 
+('Sucesso', NOW()),
+('Falha', NOW());
+
+INSERT INTO problem_descriptions (description, created_at) VALUES 
+('Problema de Conexão', NOW()),
+('Erro de Sistema', NOW());
+
+INSERT INTO servers (name, department, client_id, created_at) VALUES 
+('Servidor Teste', 'TI', 1, NOW());
+
+INSERT INTO calls (
+    client_id, 
+    agent_id, 
+    server_id, 
+    ticket_number, 
+    call_number,
+    action_type_id, 
+    final_status_id, 
+    call_result_id, 
+    call_date, 
+    remote_access, 
+    problem_description_id, 
+    observation, 
+    created_at
+) VALUES (
+    1, -- client_id
+    1, -- agent_id
+    1, -- server_id
+    'TK001',
+    'CALL001',
+    1, -- action_type_id (Manutenção)
+    1, -- final_status_id (Concluído)
+    1, -- call_result_id (Sucesso)
+    NOW(), -- call_date
+    true, -- remote_access
+    1, -- problem_description_id
+    'Chamado de teste',
+    NOW()
+);
+
+-- Criar índices para otimização
+CREATE INDEX idx_calls_client_id ON calls(client_id);
+CREATE INDEX idx_calls_agent_id ON calls(agent_id);
+CREATE INDEX idx_calls_server_id ON calls(server_id);
+CREATE INDEX idx_calls_call_date ON calls(call_date);

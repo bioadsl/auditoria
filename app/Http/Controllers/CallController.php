@@ -10,6 +10,7 @@ use App\Models\ActionType;
 use App\Models\FinalStatus;
 use App\Models\CallResult;
 use App\Models\Server;
+use App\Models\ProblemDescription;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
@@ -27,9 +28,6 @@ use Illuminate\Routing\Controller as BaseController;
  */
 class CallController extends BaseController
 {
-    /**
-     * Constructor with middleware configuration
-     */
     public function __construct()
     {
         $this->middleware(['auth']);
@@ -49,7 +47,7 @@ class CallController extends BaseController
      */
     public function index()
     {
-        $calls = Call::with(['client', 'agent', 'actionType', 'finalStatus', 'callResult', 'server'])
+        $calls = Call::with(['client', 'agent', 'actionType', 'finalStatus', 'callResult', 'server', 'problemDescription'])
             ->orderBy('created_at', 'desc')
             ->get();
             
@@ -94,17 +92,17 @@ class CallController extends BaseController
      *     @OA\RequestBody(
      *         required=true,
      *         @OA\JsonContent(
-     *             required={"client_id","agent_id","server_name","action_type_id","final_status_id","call_result_id","call_date","problem_description"},
+     *             required={"client_id","agent_id","server_id","action_type_id","final_status_id","call_result_id","call_date","problem_description_id"},
      *             @OA\Property(property="client_id", type="integer", description="ID do cliente"),
      *             @OA\Property(property="agent_id", type="integer", description="ID do agente"),
-     *             @OA\Property(property="server_name", type="string", description="Nome do servidor"),
+     *             @OA\Property(property="server_id", type="integer", description="ID do servidor"),
      *             @OA\Property(property="ticket_number", type="string", nullable=true, description="Número do ticket"),
      *             @OA\Property(property="action_type_id", type="integer", description="ID do tipo de ação"),
      *             @OA\Property(property="final_status_id", type="integer", description="ID do status final"),
      *             @OA\Property(property="call_result_id", type="integer", description="ID do resultado do chamado"),
      *             @OA\Property(property="call_date", type="string", format="date-time", description="Data do chamado (d/m/Y H:i:s)"),
      *             @OA\Property(property="remote_access", type="boolean", nullable=true, description="Indica se houve acesso remoto"),
-     *             @OA\Property(property="problem_description", type="string", maxLength=1000, description="Descrição do problema"),
+     *             @OA\Property(property="problem_description_id", type="integer", description="ID da descrição do problema"),
      *             @OA\Property(property="observation", type="string", nullable=true, maxLength=1000, description="Observações adicionais")
      *         )
      *     ),
@@ -114,11 +112,7 @@ class CallController extends BaseController
      *     ),
      *     @OA\Response(
      *         response=422,
-     *         description="Erro de validação",
-     *         @OA\JsonContent(
-     *             @OA\Property(property="message", type="string", example="Dados inválidos"),
-     *             @OA\Property(property="errors", type="object")
-     *         )
+     *         description="Erro de validação"
      *     )
      * )
      */
@@ -130,45 +124,40 @@ class CallController extends BaseController
             $validated = $request->validate([
                 'client_id' => 'required|exists:clients,id',
                 'agent_id' => 'required|exists:agents,id',
-                'server_name' => 'required|string',
+                'server_id' => 'required|exists:servers,id',
                 'ticket_number' => 'nullable|string',
                 'action_type_id' => 'required|exists:action_types,id',
                 'final_status_id' => 'required|exists:final_statuses,id',
                 'call_result_id' => 'required|exists:call_results,id',
-                'call_date' => 'required',
+                'call_date' => 'required|date_format:d/m/Y H:i:s',
                 'remote_access' => 'nullable|boolean',
-                'problem_description' => 'required|string|max:1000',
+                'problem_description_id' => 'required|exists:problem_descriptions,id',
                 'observation' => 'nullable|string|max:1000'
             ]);
 
             Log::info('Dados validados', $validated);
 
-            // First find or create the server
-            $server = Server::firstOrCreate(
-                ['name' => $validated['server_name']],
-                ['description' => 'Servidor criado automaticamente']
-            );
-
             try {
                 $callDate = Carbon::createFromFormat('d/m/Y H:i:s', $validated['call_date']);
             } catch (\Exception $e) {
+                Log::error('Erro ao converter data', ['error' => $e->getMessage()]);
                 return back()
                     ->withInput()
                     ->withErrors(['call_date' => 'Formato de data inválido. Use dd/mm/aaaa hh:mm:ss']);
             }
 
             $callData = [
-                'client_id' => (int)$validated['client_id'],
-                'agent_id' => (int)$validated['agent_id'],
-                'server_id' => $server->id,
+                'client_id' => $validated['client_id'],
+                'agent_id' => $validated['agent_id'],
+                'server_id' => $validated['server_id'],
                 'ticket_number' => $validated['ticket_number'],
-                'action_type_id' => (int)$validated['action_type_id'],
-                'final_status_id' => (int)$validated['final_status_id'],
-                'call_result_id' => (int)$validated['call_result_id'],
+                'action_type_id' => $validated['action_type_id'],
+                'final_status_id' => $validated['final_status_id'],
+                'call_result_id' => $validated['call_result_id'],
                 'call_date' => $callDate,
                 'remote_access' => (bool)$request->input('remote_access', false),
-                'problem_description' => $validated['problem_description'],
-                'observation' => $validated['observation'] ?? null
+                'problem_description_id' => $validated['problem_description_id'],
+                'observation' => $validated['observation']
             ];
 
             Log::info('Tentando criar chamado com os dados:', $callData);
@@ -176,23 +165,18 @@ class CallController extends BaseController
             DB::beginTransaction();
             
             try {
-                $call = new Call();
-                $call->fill($callData);
-                $saved = $call->save();
+                $call = Call::create($callData);
                 
-                if (!$saved) {
+                if (!$call) {
                     throw new \Exception('Falha ao criar o registro do chamado');
                 }
 
                 DB::commit();
                 Log::info('Chamado criado com sucesso', ['call_id' => $call->id]);
 
-                return response()
-                    ->json([
-                        'message' => 'Chamado criado com sucesso',
-                        'data' => $call
-                    ], 201)
-                    ->header('Location', route('calls.show', $call->id));
+                return redirect()
+                    ->route('calls.index')
+                    ->with('success', 'Chamado criado com sucesso!');
 
             } catch (\Exception $e) {
                 DB::rollBack();
@@ -213,6 +197,104 @@ class CallController extends BaseController
             return back()
                 ->withInput()
                 ->withErrors(['error' => 'Erro ao salvar o chamado: ' . $e->getMessage()]);
+        }
+    }
+
+    public function show(Call $call)
+    {
+        $call->load(['client', 'agent', 'actionType', 'finalStatus', 'callResult', 'server', 'problemDescription']);
+        return view('calls.show_calls', compact('call'));
+    }
+
+    public function edit(Call $call)
+    {
+        $clients = Client::all();
+        $agents = Agent::all();
+        $actionTypes = ActionType::all();
+        $finalStatuses = FinalStatus::all();
+        $callResults = CallResult::all();
+        
+        return view('calls.edit_calls', compact(
+            'call',
+            'clients',
+            'agents',
+            'actionTypes',
+            'finalStatuses',
+            'callResults'
+        ));
+    }
+
+    public function update(Request $request, Call $call)
+    {
+        try {
+            $validated = $request->validate([
+                'client_id' => 'required|exists:clients,id',
+                'agent_id' => 'required|exists:agents,id',
+                'server_id' => 'required|exists:servers,id',
+                'ticket_number' => 'nullable|string',
+                'action_type_id' => 'required|exists:action_types,id',
+                'final_status_id' => 'required|exists:final_statuses,id',
+                'call_result_id' => 'required|exists:call_results,id',
+                'call_date' => 'required|date_format:d/m/Y H:i:s',
+                'remote_access' => 'nullable|boolean',
+                'problem_description_id' => 'required|exists:problem_descriptions,id',
+                'observation' => 'nullable|string|max:1000'
+            ]);
+
+            $callDate = Carbon::createFromFormat('d/m/Y H:i:s', $validated['call_date']);
+
+            DB::beginTransaction();
+
+            try {
+                $call->update([
+                    'client_id' => $validated['client_id'],
+                    'agent_id' => $validated['agent_id'],
+                    'server_id' => $validated['server_id'],
+                    'ticket_number' => $validated['ticket_number'],
+                    'action_type_id' => $validated['action_type_id'],
+                    'final_status_id' => $validated['final_status_id'],
+                    'call_result_id' => $validated['call_result_id'],
+                    'call_date' => $callDate,
+                    'remote_access' => (bool)$request->input('remote_access', false),
+                    'problem_description_id' => $validated['problem_description_id'],
+                    'observation' => $validated['observation']
+                ]);
+
+                DB::commit();
+
+                return redirect()
+                    ->route('calls.index')
+                    ->with('success', 'Chamado atualizado com sucesso!');
+
+            } catch (\Exception $e) {
+                DB::rollBack();
+                throw $e;
+            }
+
+        } catch (\Exception $e) {
+            return back()
+                ->withInput()
+                ->withErrors(['error' => 'Erro ao atualizar o chamado: ' . $e->getMessage()]);
+        }
+    }
+
+    public function destroy(Call $call)
+    {
+        try {
+            DB::beginTransaction();
+
+            $call->delete();
+
+            DB::commit();
+
+            return redirect()
+                ->route('calls.index')
+                ->with('success', 'Chamado excluído com sucesso!');
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            
+            return back()->withErrors(['error' => 'Erro ao excluir o chamado: ' . $e->getMessage()]);
         }
     }
 }

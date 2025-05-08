@@ -46,20 +46,6 @@ Route::apiResource('servers', ServerController::class)->names([
     'destroy' => 'api.servers.destroy',
 ]);
 
-// Report routes remain unchanged as they don't have naming conflicts
-Route::prefix('reports')->group(function () {
-    Route::get('/calls', [ReportController::class, 'calls']);
-    Route::get('/actions', [ReportController::class, 'actions']);
-    Route::get('/status', [ReportController::class, 'status']);
-    Route::get('/remote-access', [ReportController::class, 'remoteAccess']);
-    Route::get('/monthly', [ReportController::class, 'monthly']);
-    Route::get('/by-agent', [ReportController::class, 'byAgent']);
-    Route::get('/by-user', [ReportController::class, 'byUser']);
-    Route::get('/by-time', [ReportController::class, 'byTime']);
-    Route::get('/long-wait', [ReportController::class, 'longWait']);
-    Route::get('/quality-metrics', [ReportController::class, 'qualityMetrics']);
-});
-
 Route::apiResource('agents', AgentController::class)->names([
     'index' => 'api.agents.index',
     'store' => 'api.agents.store',
@@ -89,3 +75,5 @@ Route::prefix('reports')->group(function () {
     Route::get('/long-wait', [ReportController::class, 'longWait']);
     Route::get('/quality-metrics', [ReportController::class, 'qualityMetrics']);
 });
+
+

@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-@section('styles')
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-table@1.24.1/dist/bootstrap-table.min.css" rel="stylesheet">
-@endsection
-
 @section('content')
 <div class="container-fluid px-3">
     <div class="row mb-3">
@@ -99,4 +95,8 @@ $(document).ready(function() {
     });
 });
 </script>
+@endsection
+
+@section('styles')
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-table@1.24.1/dist/bootstrap-table.min.css" rel="stylesheet">
 @endsection

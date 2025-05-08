@@ -65,24 +65,24 @@ class ProblemDescriptionController extends Controller
             ->with('success', 'Descrição de problema excluída com sucesso!');
     }
 
-    public function autocomplete(Request $request): JsonResponse
+    public function autocomplete(Request $request)
     {
-        $search = $request->get('term');
+        $query = $request->get('query');
         
-        $descriptions = ProblemDescription::active()
-            ->where('description', 'LIKE', "%{$search}%")
+        $descriptions = ProblemDescription::where('description', 'LIKE', "%{$query}%")
             ->select('id', 'description')
-            ->orderBy('description')
-            ->limit(10)
-            ->get()
-            ->map(function($desc) {
-                return [
-                    'id' => $desc->id,
-                    'value' => $desc->description,
-                    'label' => $desc->description
-                ];
-            });
+            ->get();
         
-        return response()->json($descriptions);
+        return response()->json(['descriptions' => $descriptions]);
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->get('query');
+        
+        $descriptions = ProblemDescription::where('description', 'LIKE', "%{$query}%")
+            ->get();
+            
+        return response()->json(['descriptions' => $descriptions]);
     }
 }

@@ -183,7 +183,7 @@ Preposto do contrato Antonio e José Inácio",0,Não,março
 178,Paulo,ANA,19/03/2025 10:22:34,jlgzoby,,Sem acesso à internet,Abertura,Fechado OK,Atendida,,0,Não,março
 179,Paulo,ANA,19/03/2025 10:27:37,Gabriel Lemos,,Instalação de Software,Abertura,Fechado OK,Atendida,Sistema duplicando chamados,0,Não,março
 180,Nycolas Martins,ANA,19/03/2025 10:28:28,,,Senha do SEI nao funciona,Abertura,Fechado OK,Atendida,,0,Não,março
-181,Nycolas Martins,ANA,19/03/2025 10:32:18,Viviane Graça,,Sem acesso à internet,Abertura,Fechado OK,Atendida,,0,Não,março
+181,Nycolas Martins,ANA,19/03/2025 10:32:18,Viviane Graça,,Sem acesso à internet,Abertura,Fechado OK,Atendida,,106,Não,março
 182,Paulo,ANA,19/03/2025 10:43:51,,,Sem acesso à internet,Abertura,Fechado OK,Atendida,,0,Não,março
 183,Nycolas Martins,ANA,19/03/2025 10:51:27,,,Configuração de WiFi no celular,Abertura,Fechado OK,Atendida,,0,Não,março
 184,Paulo,ANA,19/03/2025 10:51:34,Luciana Sarmento,,Senha do SEI nao funciona,Abertura,Fechado OK,Atendida,,0,Não,março
@@ -191,8 +191,8 @@ Preposto do contrato Antonio e José Inácio",0,Não,março
 186,Nycolas Martins,ANA,19/03/2025 11:12:56,Luciana Sarmento,,Erro no autenticator,Sem Ação,Sem comunicação,Não atendida,,0,Não,março
 187,Nycolas Martins,ANA,19/03/2025 11:14:22,,,,Sem Ação,Sem comunicação,Não atendida,,0,Não,março
 188,Nycolas Martins,ANA,19/03/2025 11:17:22,Desdei,,Configuração de aplicativo,Corretiva,Sem comunicação,Interrompida,,0,Sim,março
-189,Nycolas Martins,ANA,19/03/2025 11:17:34,Luciana Sarmento,,,Sem Ação,Sem comunicação,Atendida,,0,,março
-190,Nycolas Martins,ANA,19/03/2025 11:22:02,Luciana Sarmento,,,Sem Ação,Sem comunicação,Abandono,Cliente dispensou o atendente,,,
+189,Nycolas Martins,ANA,19/03/2025 11:17:34,Luciana Sarmento,,,Sem Ação,Sem comunicação,Atendida,,0,Não,março
+190,Nycolas Martins,ANA,19/03/2025 11:22:02,Luciana Sarmento,,,Sem Ação,Sem comunicação,Abandono,Cliente dispensou o atendente,0,Não,março
 191,Nycolas Martins,ANA,19/03/2025 11:22:39,,,,Sem Ação,Sem comunicação,Não atendida,,0,Não,março
 192,Paulo,ANA,19/03/2025 11:48:59,Luciana Sarmento,,Erro no autenticator,Corretiva,Fechado OK,Atendida,,0,Sim,março
 193,Nycolas Martins,ANA,19/03/2025 12:13:42,Demetria Mendes,,Configuração de WiFi no celular,Corretiva,Fechado OK,Atendida,,0,Não,março
@@ -200,6 +200,78 @@ Preposto do contrato Antonio e José Inácio",0,Não,março
 195,Matheus Henrique,ANA,19/03/2025 16:06:30,Alberto Nunes,,Encaminhado para N2,Encaminhamento,Fechado OK,Atendida,Instalação mal sucessedida do IR,0,Sim,março
 196,Breno Marques,ANA,20/03/2025 08:56:08,Naira,,Encaminhado para N2,Encaminhamento,Fechado OK,Atendida,,0,Não,março
 197,Paulo,ANA,20/03/2025 09:16:37,,,Sem acesso à internet,Sem Ação,Sem comunicação,Abandono,,0,Não,março
-198,Matheus Acioly,ANA,20/03/2025 09:31:02,,,Configuração de aplicativo,Corretiva,Fechado OK,Atendida,,0,Sim,março
+198,Matheus Acioly,ANA,20/03/2025 09:31:02,,,Configuração de aplicativo,Corretiva,Fechado OK,Atendida,,273,Sim,março
 199,Paulo,ANA,20/03/2025 10:40:16,,,Encaminhado para N2,Encaminhamento,Fechado OK,Atendida,,0,Não,março
 200,Adalberto Filho,ANA,20/03/2025 10:40:16,,,Conta bloqueada,Sem Ação,Sem comunicação,Não atendida,Cliente reclama do Barulho,0,Não,março
+201,Italo Atila,MRE,01/03/2025 13:04:55,,,Coleção bloqueada,Informação,Sem Chamado,Atendida,Echo na ligação,0,Não,março
+202,Artur Batista,MRE,01/03/2025 13:33:51,,,Coleção bloqueada,Informação,Sem Chamado,Atendida,,0,Não,março
+203,Inácio Souza,MRE,01/03/2025 18:28:20,,,,Sem Ação,Sem comunicação,Não atendida,,0,Não,março
+204,Artur Batista,MRE,01/03/2025 18:29:41,Carlos Franca,,Atualização de email institucional,Informação,Sem Chamado,Atendida,,0,Não,março
+205,Pedro Amaral,MRE,03/03/2025 07:42:47,,CAT560327,,Informação,Fechado OK,Atendida,,0,Não,março
+206,João Carvalho,MRE,03/03/2025 08:54:31,,,,Sem Ação,Sem comunicação,Não atendida,,0,Não,março
+207,Gabrielly Vieira,MRE,03/03/2025 08:56:31,Jorge,,,Informação,Fechado OK,Atendida,,0,Não,março
+208,Italo Atila,MRE,03/03/2025 09:59:01,Ministro Luiz Marfil,CAT560505,Conta bloqueada,Abertura,Fechado OK,Atendida,"Atendente pede para o Ministro abrir um giz mesmo informando que não esta conseguindo logar no exchange, posteriormente ele mesmo abre o giz",0,Não,março
+209,Pedro Amaral,MRE,03/03/2025 11:18:46,Jairo Filho,CAT560497,,Informação,Fechado OK,Atendida,,0,Não,março
+210,Gabrielly Vieira,MRE,03/03/2025 11:43:25,Wilson,,,Informação,Fechado OK,Atendida,,0,Não,março
+211,Italo Atila,MRE,03/03/2025 11:52:36,,CAT560415,,Informação,Fechado OK,Atendida,Cliente insatisfeita,0,Não,março
+212,João Carvalho,MRE,03/03/2025 12:23:28,,,,Sem Ação,Sem comunicação,Não atendida,,0,Não,março
+213,Pedro Amaral,MRE,03/03/2025 12:24:31,Wilson,,Sem permissão de acesso a pastas na rede,Informação,Fechado OK,Atendida,,0,Não,março
+214,Gabrielly Vieira,MRE,03/03/2025 12:36:16,Jorge,,,Informação,Fechado OK,Atendida,,0,Não,março
+215,João Carvalho,MRE,03/03/2025 12:51:13,,,,Sem Ação,Teste,Teste,,0,Não,março
+216,Edvaldo Neto,MRE,03/03/2025 17:00:34,Ministro Luiz Marfil,CAT560505,,Informação,Fechado OK,Atendida,,0,Não,março
+217,Aécio Lopes,MRE,04/03/2025 03:53:41,,,Conta bloqueada,Informação,Fechado OK,Atendida,"Clientes com erro de login são orientados a pedir para um colega de trabalho abrir um giz, clientes insatisfeitos ",0,Não,março
+218,Eduardo Vinícios,MRE,04/03/2025 04:28:42,Eduardo Monteiro,,Sem acesso à internet,Informação,Fechado OK,Atendida,Ligação com echo ,0,Não,março
+219,Aécio Lopes,MRE,04/03/2025 05:21:43,Juliano Elias,CAT560544,,Informação,Sem Chamado,Atendida,,0,Não,março
+220,Edvaldo Neto,MRE,04/03/2025 05:34:00,Jairo,,,Sem Ação,Sem comunicação,Abandono,,0,Não,março
+221,Aécio Lopes,MRE,04/03/2025 05:35:15,Jairo,CAT560497,,Informação,Fechado OK,Atendida,,0,Não,março
+222,Edvaldo Neto,MRE,04/03/2025 05:42:52,,,,Informação,Sem comunicação,Abandono,,0,Não,março
+223,Aécio Lopes,MRE,04/03/2025 05:47:57,Denis,,,Informação,Fechado OK,Atendida,"falha de segurança, estao acessando a caixa pessoal de email de qualquer funcionario",0,Não,março
+224,Eduardo Vinícios,MRE,04/03/2025 06:32:39,,,,Informação,Sem Chamado,Atendida,"echo na ligação, cliente sugere termos a lista de plantao da DDAC (esta com problemas na exibição na foto dos passaportes, responsabilidade da cassa da moeda)",0,Não,março
+225,João Carvalho,MRE,04/03/2025 07:03:23,,,,Sem Ação,Teste,Teste,,0,Não,março
+226,Italo Atila,MRE,04/03/2025 07:59:23,Josely,,,Informação,Sem Chamado,Atendida,,0,Não,março
+227,Pedro Amaral,MRE,04/03/2025 09:12:11,Rosiane Arruda,CAT560568,Erro no autenticator,Abertura,Sem Chamado,Atendida,,0,Não,março
+228,Gabrielly Vieira,MRE,04/03/2025 10:15:39,Nelson de Sousa,CAT560578,Sem acesso à internet,Abertura,Sem Chamado,Atendida,,0,Não,março
+229,João Carvalho,MRE,04/03/2025 10:18:57,Rosiane Arruda,CAT560568,Erro no autenticator,Informação,Pendente,Atendida,,0,Não,março
+230,Italo Atila,MRE,04/03/2025 11:20:07,João,,,Informação,Sem Chamado,Engano,,0,Não,março
+231,Pedro Amaral,MRE,04/03/2025 11:33:36,Anuar Marques,CAT560583,Atualização de email institucional,Abertura,Sem Chamado,Atendida,,0,Não,março
+232,Vitor Barbosa,MRE,04/03/2025 20:15:22,Soraia,,Configuração de aplicativo,Corretiva,Sem Chamado,Atendida,,0,Sim,março
+233,Aécio Lopes,MRE,05/03/2025 05:35:02,Juliano Elias,CAT560544,,Informação,Pendente,Atendida,"Explicação para o cliente insuficiente, deseja desbilitar autenticação de dois fatores, cliente insatisfeito",0,Não,março
+234,Eduardo Vinícios,MRE,05/03/2025 06:05:49,,,,Sem Ação,Sem comunicação,Não atendida,,0,Não,março
+235,Aécio Lopes,MRE,05/03/2025 06:08:39,,,,Informação,Sem Chamado,Atendida,cliente se alterou com o atendente,0,Não,março
+236,Eduardo Vinícios,MRE,05/03/2025 06:19:47,,,,Informação,Pendente,Atendida,,0,Não,março
+237,Aécio Lopes,MRE,05/03/2025 06:38:56,Andreia,CAT560541,,Informação,Pendente,Atendida,cliente se alterou com o atendente,0,Não,março
+238,Gabrielly Vieira,MRE,05/03/2025 08:48:01,Ana Vitoria,,,Informação,Sem Chamado,Atendida,Echo na ligação,0,Não,março
+239,João Carvalho,MRE,05/03/2025 09:56:32,Maria Lins,,,Informação,Pendente,Atendida,Atendente falou que nao tem como abrir um chamado e diz que o usuaria esta errada,0,Não,março
+240,Italo Atila,MRE,05/03/2025 10:21:08,,,,Sem Ação,Sem comunicação,Não atendida,,0,Não,março
+241,Pedro Amaral,MRE,05/03/2025 10:21:45,Jairo,CAT560497,,Informação,Pendente,Atendida,,0,Não,março
+242,Gabrielly Vieira,MRE,05/03/2025 10:25:34,Anuar Marques,CAT560583,,Informação,Pendente,Atendida,,0,Não,março
+243,João Carvalho,MRE,05/03/2025 10:44:10,,CAT557166,,Informação,Fechado NOK,Atendida,Chamado fechado sem resolução,0,Não,março
+244,Italo Atila,MRE,05/03/2025 11:16:04,Joao,,,Informação,Sem Chamado,Atendida,,0,Não,março
+245,Pedro Amaral,MRE,05/03/2025 11:33:35,,,,Informação,Sem Chamado,Atendida,,0,Não,março
+246,Gabrielly Vieira,MRE,05/03/2025 12:01:57,Jairo,CAT560497,,Informação,Sem Chamado,Atendida,,0,Não,março
+247,João Carvalho,MRE,05/03/2025 12:04:08,Isabela,,,Informação,Sem Chamado,Atendida,,0,Não,março
+248,Pedro Amaral,MRE,05/03/2025 12:21:28,Jairo,CAT560497,,Informação,Sem Chamado,Atendida,,0,Não,março
+249,Italo Atila,MRE,05/03/2025 12:32:20,Ricardo Peixoto,CAT56585,,Informação,Sem Chamado,Atendida,,0,Não,março
+250,Gabrielly Vieira,MRE,05/03/2025 12:43:41,Anuar Marques,CAT560583,,Informação,Fechado OK,Atendida,,0,Não,março
+251,João Carvalho,MRE,05/03/2025 12:53:53,Ricardo Peixoto,,,Informação,Sem Chamado,Atendida,,0,Não,março
+252,Artur Batista,MRE,05/03/2025 14:00:39,,,,Informação,Sem Chamado,Atendida,,0,Não,março
+253,Edvaldo Neto,MRE,05/03/2025 14:02:10,,,Conta bloqueada,Informação,Sem Chamado,Atendida,,0,Não,março
+254,Artur Batista,MRE,05/03/2025 14:04:30,Ariel Silva,,Conta bloqueada,Informação,Sem Chamado,Atendida,,0,Não,março
+255,Edvaldo Neto,MRE,05/03/2025 14:10:06,,,Sem acesso à internet,Informação,Sem Chamado,Atendida,,0,Não,março
+256,Artur Batista,MRE,05/03/2025 14:12:34,Ariel Silva,,Conta bloqueada,Informação,Sem Chamado,Atendida,,0,Não,março
+257,Inácio Souza,MRE,05/03/2025 14:21:50,,,"Maquina da agência desligada, Problema no e-Docs",Informação,Sem Chamado,Atendida,,0,Não,março
+258,Edvaldo Neto,MRE,05/03/2025 14:34:49,Jorge,CAT559528,Maquina da agência desligada,Informação,Pendente,Atendida,,0,Não,março
+259,Artur Batista,MRE,05/03/2025 15:01:24,,,Problema no e-Docs,Informação,Sem Chamado,Atendida,,0,Não,março
+260,Inácio Souza,MRE,05/03/2025 15:05:25,,,Sem acesso à internet,Informação,Sem Chamado,Atendida,,0,Não,março
+261,Edvaldo Neto,MRE,05/03/2025 15:17:04,,,Erro no autenticator,Informação,Sem Chamado,Atendida,,0,Não,março
+262,Artur Batista,MRE,05/03/2025 15:20:23,Daniele,,Sem acesso à internet,Informação,Sem Chamado,Atendida,,0,Não,março
+263,Inácio Souza,MRE,05/03/2025 15:43:36,Valdir,,Problema no e-Docs,Informação,Sem Chamado,Atendida,,0,Não,março
+264,Edvaldo Neto,MRE,05/03/2025 15:44:55,,,Configuração de aplicativo,Informação,Sem Chamado,Atendida,,0,Sim,março
+265,Artur Batista,MRE,05/03/2025 15:45:57,,,Sem acesso à internet,Informação,Sem Chamado,Atendida,,0,Não,março
+266,Inácio Souza,MRE,05/03/2025 15:49:56,Geovana,,Problema no e-Docs,Informação,Sem Chamado,Atendida,,0,Não,março
+267,Artur Batista,MRE,05/03/2025 15:52:19,,CAT560723,Problema no e-Docs,Informação,Sem Chamado,Atendida,,0,Não,março
+268,Inácio Souza,MRE,05/03/2025 15:55:52,,,Problema no e-Docs,Informação,Sem Chamado,Atendida,,0,Não,março
+269,Edvaldo Neto,MRE,05/03/2025 15:57:03,,,Criação de conta,Informação,Sem Chamado,Atendida,,0,Não,março
+270,Artur Batista,MRE,05/03/2025 16:01:36,,,,Informação,Sem Chamado,Atendida,,0,Não,março
+271,Inácio Souza,MRE,05/03/2025 16:05:30,,,Configuração de impressora,Informação,Sem Chamado,Atendida,,0,Não,março
+272,Edvaldo Neto,MRE,05/03/2025 16:07:23,,,Erro no autenticator,Informação,Sem Chamado,Atendida,,0,Não,março

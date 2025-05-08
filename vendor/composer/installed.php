@@ -493,6 +493,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'league/csv' => array(
+            'pretty_version' => '9.23.0',
+            'version' => '9.23.0.0',
+            'reference' => '774008ad8a634448e4f8e288905e070e8b317ff3',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../league/csv',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'league/flysystem' => array(
             'pretty_version' => '3.29.1',
             'version' => '3.29.1.0',
